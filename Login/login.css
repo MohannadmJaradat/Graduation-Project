@@ -1,0 +1,114 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2B293D;
+}
+
+.left-div {
+    background-color: rgb(197, 108, 108);
+    height: 100%;
+    width: 100%;
+    background-color: #2B293D;
+}
+
+.left-div-padding {
+    padding-top: 4%;
+    padding-left: 4%;
+}
+
+.left-div-text {
+    padding-top: 8%;
+    padding-left: 2%;
+    width: 50%;
+}
+
+.right-div {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 70px;
+    border-bottom-left-radius: 70px;
+}
+
+.right-div-padding {
+    padding: 15%;
+    padding-left: 20%;
+}
+
+.google-facebook {
+    display: flex;
+    margin: 4.5% 0;
+}
+
+.login-btn {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    flex-grow: 1;
+    /* Each button takes up equal space */
+    flex-basis: 50%;
+    /* Initial width of each button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 6px;
+    padding-right: 6px;
+    /* Adjust padding as needed */
+}
+
+.login-btn:hover {
+    background-color: rgb(221, 219, 219);
+    /* Change background color on hover */
+}
+
+.login-btn1 {
+    margin-right: 2%;
+}
+
+.login-btn2 {
+    margin-left: 2%;
+}
+
+.horizontal-line {
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    display: flex;
+    margin-bottom: 2%;
+}
+
+.line {
+    flex: 1;
+    /* Let the line elements grow to fill the available space */
+    height: 0px;
+    border: 1px rgba(111, 111, 111, 0.30) solid;
+    margin: 0 5px;
+    /* Add some margin for spacing */
+}
+
+.or {
+    text-align: center;
+    color: #A3A3A3;
+    font-size: 24px;
+    font-family: Open Sans;
+    font-weight: 400;
+    word-wrap: break-word
+}
+
+.form-control {
+    height: 45px;
+    margin-bottom: 6%;
+}
+
+.create-account-button {
+    height: 45px;
+    background-color: #2B293D;
+    transition: background-color 0.3s ease;
+    margin-bottom: 3%;
+}
+
+.create-account-button:hover {
+    background-color: #4c4769;
+}
