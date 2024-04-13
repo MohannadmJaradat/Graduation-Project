@@ -1,0 +1,20 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B293D;
+}
+
+.footer-nav-link {
+    border-bottom: 2px solid transparent;
+    /* Set initial border color */
+    transition: color 0.3s, border-color 0.3s;
+    /* Add transition for color and border */
+}
+
+.footer-nav-link:hover {
+    color: #FFE047 !important;
+    /* Change text color on hover */
+    border-bottom-color: #FFE047;
+    /* Change border color on hover */
+}
