@@ -26,9 +26,23 @@
 }
 
 .user-header-dropdown-toggle:focus {
-    color: white !important;
+    color: #FFFF !important;
 }
 
 .dropdown-toggle:hover {
     color: white !important;
+}
+
+@media (max-width: 991px) {
+    .header-media-1 {
+        text-align: center !important;
+        margin-right: 30%;
+        margin-left: 30%;
+    }
+    .header-media-2 {
+        margin-top: 10%;
+    }
+    .dropdown-media {
+        margin-top: 10%;
+    }
 }
