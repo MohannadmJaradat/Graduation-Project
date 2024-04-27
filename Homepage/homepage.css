@@ -21,6 +21,39 @@
         border-bottom-color: #FFE047;
         /* Change border color on hover */
     }
+    /* Custom media queries */
+    
+    @media (max-width: 990px) {
+        .header-media-1 {
+            justify-content: center;
+            margin-left: 31.5%;
+            margin-right: 10%;
+        }
+    }
+    
+    @media (max-width: 830px) {
+        .header-media-1 {
+            justify-content: center;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+    }
+    
+    @media (max-width: 610px) {
+        .header-media-1 {
+            justify-content: center;
+            margin-left: 13%;
+            margin-right: 14%;
+        }
+    }
+    
+    @media (max-width: 491px) {
+        .header-media-1 {
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
     /*navbar--------------------------------------*/
     
     a {
