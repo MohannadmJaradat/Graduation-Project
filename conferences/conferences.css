@@ -1,0 +1,168 @@
+/*header--------------------------------------------*/
+
+.header {
+    background-color: #2B293D;
+}
+
+.header-container {
+    max-width: 100%;
+}
+
+.header-nav-link {
+    border-bottom: 2px solid transparent;
+    /* Set initial border color */
+    transition: color 0.3s, border-color 0.3s;
+    /* Add transition for color and border */
+}
+
+.header-nav-link:hover {
+    color: #FFE047 !important;
+    /* Change text color on hover */
+    border-bottom-color: #FFE047;
+    /* Change border color on hover */
+}
+
+.user-header-dropdown-toggle {
+    color: #FFFF;
+    padding-left: 10px;
+}
+
+.user-header-dropdown-toggle:focus {
+    color: #FFFF !important;
+}
+
+.dropdown-toggle:hover {
+    color: white !important;
+}
+
+@media (max-width: 991px) {
+    .header-media-1 {
+        text-align: center !important;
+        margin-right: 30%;
+        margin-left: 30%;
+    }
+    .header-media-2 {
+        margin-top: 10%;
+    }
+    .dropdown-media {
+        margin-top: 10%;
+    }
+}
+
+
+/*header--------------------------------------------*/
+
+.conference-background {
+    /* Ensure proper stacking context */
+    height: 380px;
+    background-image: url("../assets/navyBlueBGBlurred.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.conference-welcoming-text {
+    color: white;
+    margin-left: 20%;
+    padding-top: 5%;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.conference-search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+    width: 30%;
+    min-width: 400px;
+    /* Adjust width as needed */
+    margin-left: auto;
+    margin-right: auto;
+    /* Center horizontally */
+}
+
+.conference-search-input {
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+}
+
+.conference-select-country {
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+}
+
+.conferences {
+    margin-top: 5%;
+    margin-left: 4%;
+    overflow-x: hidden;
+}
+
+.filters {
+    padding-bottom: 5%;
+}
+
+.form-check-label:hover {
+    cursor: pointer;
+}
+
+.form-check-input:hover {
+    cursor: pointer;
+}
+
+hr {
+    width: 80%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.conference-cards {
+    border-left: 1.5px #c2c1c1 solid;
+    padding-left: 3%;
+    margin-right: 3%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card {
+    margin-top: 6%;
+    border: none;
+}
+
+.card-div {
+    /* Add your existing styles here */
+    /* For example: */
+    transition: box-shadow 0.3s;
+}
+
+.card-div:hover {
+    box-shadow: 0 0 15px 5px #2B293D;
+}
+
+
+/*footer--------------------------------------------*/
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B293D;
+    margin-top: 4%;
+}
+
+.footer-nav-link {
+    border-bottom: 2px solid transparent;
+    /* Set initial border color */
+    transition: color 0.3s, border-color 0.3s;
+    /* Add transition for color and border */
+}
+
+.footer-nav-link:hover {
+    color: #FFE047 !important;
+    /* Change text color on hover */
+    border-bottom-color: #FFE047;
+    /* Change border color on hover */
+}
+
+
+/*footer--------------------------------------------*/
