@@ -1,0 +1,133 @@
+/*header-----------------------------------------------*/
+
+.header {
+    background-color: #2B293D;
+}
+
+.header-container {
+    max-width: 100%;
+}
+
+.header-nav-link {
+    border-bottom: 2px solid transparent;
+    /* Set initial border color */
+    transition: color 0.3s, border-color 0.3s;
+    /* Add transition for color and border */
+}
+
+.header-nav-link:hover {
+    color: #FFE047 !important;
+    /* Change text color on hover */
+    border-bottom-color: #FFE047;
+    /* Change border color on hover */
+}
+
+.user-header-dropdown-toggle {
+    color: #FFFF;
+    padding-left: 10px;
+}
+
+.user-header-dropdown-toggle:focus {
+    color: #FFFF !important;
+}
+
+.dropdown-toggle:hover {
+    color: white !important;
+}
+
+@media (max-width: 991px) {
+    .header-media-1 {
+        text-align: center !important;
+        margin-right: 30%;
+        margin-left: 30%;
+    }
+    .header-media-2 {
+        margin-top: 10%;
+    }
+    .dropdown-media {
+        margin-top: 10%;
+    }
+}
+
+
+/*header-----------------------------------------------*/
+
+.main-create-event-advanced {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.create-event-advanced-title-div {
+    margin-bottom: 3%;
+}
+
+.create-event-advanced-back-button {
+    padding-bottom: 1%;
+}
+
+.create-event-advanced-title-h2 {
+    color: #2B293D;
+    display: inline;
+    margin-left: 2%;
+}
+
+.create-event-advanced-location-h4 {
+    color: #2B293D;
+    margin-left: 92px;
+}
+
+.create-event-advanced-time-h4 {
+    color: #2B293D;
+    margin-left: 92px;
+}
+
+.main-input-group-div {
+    margin-top: 4%;
+}
+
+hr {
+    color: white;
+}
+
+.save-and-continue-btn {
+    margin-top: 20%;
+    background-color: #2B293D;
+    color: #FFFF;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.save-and-continue-btn:hover {
+    background-color: #514e6e;
+    /* New background color */
+    color: white;
+    /* New text color */
+}
+
+
+/*footer-----------------------------------------------*/
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B293D;
+    margin-top: 4%;
+}
+
+.footer-nav-link {
+    border-bottom: 2px solid transparent;
+    /* Set initial border color */
+    transition: color 0.3s, border-color 0.3s;
+    /* Add transition for color and border */
+}
+
+.footer-nav-link:hover {
+    color: #FFE047 !important;
+    /* Change text color on hover */
+    border-bottom-color: #FFE047;
+    /* Change border color on hover */
+}
+
+
+/*footer-----------------------------------------------*/
