@@ -12,6 +12,17 @@ function loadData(){
   let poster = window.localStorage.setItem('poster');
   let enableNames = window.localStorage.setItem('enable-names');
   let enablesAbstracts = window.localStorage.setItem('enable-abstracts');
+  console.log(title);
+  console.log(shortName);
+  console.log(startDate);
+  console.log(endDate);
+  console.log(country);
+  console.log(desc);
+  console.log(category);
+  console.log(maxNum);
+  console.log(poster);
+  console.log(enableNames);
+  console.log(enablesAbstracts);
 
 
 
