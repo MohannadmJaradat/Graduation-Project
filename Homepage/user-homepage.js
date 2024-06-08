@@ -19,12 +19,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         // Remove the token from localStorage
         localStorage.removeItem('token');
-        const token = localStorage.getItem('token');
 
         // Redirect the user to the login page
         window.location.href = '../Login/login.html';
     });
+
     fetchConferences();
+
+    // Add event listeners for conference categories
+    const categories = ['Technology', 'Medical', 'Business', 'Academic', 'Environmental', 'Cultural'];
+    categories.forEach(categoryId => {
+        const element = document.getElementById(categoryId);
+        if (element) {
+            element.addEventListener('click', function() {
+                localStorage.setItem('category', categoryId);
+                goToConferences();
+            });
+        }
+    });
 });
 
 async function fetchConferences() {
@@ -60,7 +72,17 @@ function displayConferences(conferences) {
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
     });
 }
-createConferenceBtn = document.getElementsByClassName("create-btn")
+
+function goToConferences() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '../Login/login.html';
+    } else {
+        window.location.href = '../conferences/conferences.html';
+    }
+}
+
+createConferenceBtn = document.getElementById("create-btna")
 
 createConferenceBtn.addEventListener("click",goToCreateConference);
 
@@ -75,4 +97,3 @@ function goToCreateConference(){
 
   }
 }
-
