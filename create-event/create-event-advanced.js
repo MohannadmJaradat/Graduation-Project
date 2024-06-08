@@ -9,6 +9,7 @@ function goToReview(){
     let enablesAbstracts = document.getElementById('yesRadio').checked;
     let disableAbstracts = document.getElementById('noRadio').checked;
     let files = document.getElementById("formFile").files;
+    console.log(files[0].type)
     console.log(maxNum)
     if(maxNum == undefined || maxNum == "" || isNaN(maxNum)){
         window.alert("Please Enter Maximum Number Of Submissions")
@@ -28,7 +29,11 @@ function goToReview(){
         window.alert("Please Enter Conference Poster")
         return;
     }
-    if(files[0].type != "image/jpeg" || files[0].type != "image/png"){
+    if(files[0].type == "image/jpeg" || files[0].type == "image/png"){
+        window.localStorage.setItem('poster',files[0])
+
+       
+    }else{
         window.alert("Poster file type not allowed")
         return;
     }
@@ -43,7 +48,6 @@ function goToReview(){
     }else{
         window.localStorage.setItem('enable-abstracts',false)
     }
-    window.localStorage.setItem('poster',files[0])
     window.location.href = "../create-event/create-event-review.html";
 
 }
