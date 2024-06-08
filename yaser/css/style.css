@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/*header-----------------------------------------------*/
+
+.header {
+    background-color: #2B293D;
+}
+
+.header-container {
+    max-width: 100%;
+}
+
+.header-nav-link {
+    border-bottom: 2px solid transparent;
+    /* Set initial border color */
+    transition: color 0.3s, border-color 0.3s;
+    /* Add transition for color and border */
+}
+
+.header-nav-link:hover {
+    color: #FFE047 !important;
+    /* Change text color on hover */
+    border-bottom-color: #FFE047;
+    /* Change border color on hover */
+}
+
+.user-header-dropdown-toggle {
+    color: #FFFF;
+    padding-left: 10px;
+}
+
+.user-header-dropdown-toggle:focus {
+    color: #FFFF !important;
+}
+
+.dropdown-toggle:hover {
+    color: white !important;
+}
+
+@media (max-width: 991px) {
+    .header-media-1 {
+        text-align: center !important;
+        margin-right: 30%;
+        margin-left: 30%;
+    }
+    .header-media-2 {
+        margin-top: 10%;
+    }
+    .dropdown-media {
+        margin-top: 10%;
+    }
+}
+
+
+/*header-----------------------------------------------*/
+
+* {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.custom-bg-color {
+    background-color: #2b293d;
+    /* Change to your desired background color */
+    color: #fff;
+}
+
+.custom-btn,
+.custom-btn:hover,
+.custom-btn:focus,
+.custom-btn:active,
+.custom-btn:visited,
+.custom-btn:link,
+.custom-btn:active,
+.custom-btn:visited,
+.custom-btn:link {
+    background-color: #2b293d;
+    color: #fff;
+    border: 1px solid #2b293d;
+}
+
+.custom-color {
+    color: #2b293d;
+}
+
+.navIcon {
+    width: 100%;
+    color: #2b293d;
+}
+
+.navIcon:hover,
+.navIcon-active {
+    background-color: #fff;
+    color: #2b293d;
+}
+
+.custom-bg-color .navbar-brand img {
+    max-height: 40px;
+    /* Adjust the height of the logo as needed */
+}
+
+.custom-bg-color .navbar-nav .nav-link {
+    color: #fff;
+    /* White color for navbar links */
+}
+
+.footer-link-color {
+    color: #a9a9a9;
+}
+
+.custom-bg-color .navbar-toggler-icon {
+    background-color: #fff;
+    /* White color for navbar toggler icon */
+}
+
+.home_icon {
+    width: 20px;
+}
+
+.btn-ticket {
+    border: 0px;
+    background-color: #FFE047;
+    font-weight: 600;
+    padding: 15px 40px 15px 40px;
+    border-radius: 10px;
+}
+
+.btn-ticket:hover {
+    background-color: #fad207;
+}
+
+.btn-contact {
+    border-radius: 5px;
+    border: 1px solid #2B293D;
+    background-color: white;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.btn-contact:hover {
+    background-color: #2B293D;
+    color: white;
+}
+
+.btn-follow {
+    border-radius: 5px;
+    border: 1px solid #2B293D;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: #2B293D;
+}
+
+.btn-follow:hover {
+    background-color: white;
+    color: #2B293D;
+}
+
+.tags {
+    padding: 4px 8px 4px 8px;
+    border-radius: 50px;
+    background-color: #F8F7FA;
+}
+
+
+/*footer-----------------------------------------------*/
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B293D;
+    margin-top: 4%;
+}
+
+.footer-nav-link {
+    border-bottom: 2px solid transparent;
+    /* Set initial border color */
+    transition: color 0.3s, border-color 0.3s;
+    /* Add transition for color and border */
+}
+
+.footer-nav-link:hover {
+    color: #FFE047 !important;
+    /* Change text color on hover */
+    border-bottom-color: #FFE047;
+    /* Change border color on hover */
+}
+
+
+/*footer-----------------------------------------------*/
