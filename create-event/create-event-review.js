@@ -1,3 +1,15 @@
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      const token = localStorage.getItem('token');
+
+      if (!token) {
+          window.location.href = '../Login/login.html'; 
+      }
+    } catch (error) {
+      
+    }
+      
+});
 window.addEventListener("load",loadData)
 
 function loadData(){

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (response.ok) {
             document.getElementById('fullName').value = userData.fullName;
-            document.getElementById('email').value = userData.email;
+            //document.getElementById('email').value = userData.email;
             document.getElementById('googleScholar').value = userData.googleScholarUsername;
             document.getElementById('webPage').value = userData.webPage;
             document.getElementById('university').value = userData.university;
