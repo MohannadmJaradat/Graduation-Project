@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error fetching user data:', error);
     }
+    
 });
 
 document.getElementById('profileForm').addEventListener('submit', async (event) => {
