@@ -25,8 +25,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error fetching user data:', error);
     }
-});
 
+   
+});
+ document.getElementById('logoutButton').addEventListener('click', function(event) {
+        // Prevent default form submission behavior
+        event.preventDefault();
+
+        // Remove the token from localStorage
+        localStorage.removeItem('token');
+
+        // Redirect the user to the login page
+        window.location.href = '../Login/login.html';
+    });
 document.getElementById('email-btn').addEventListener('click', async (event) => {
     event.preventDefault();
 
