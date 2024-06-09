@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
         window.location.href = '../Login/login.html';
     });
 
+    document.getElementById('profileb').addEventListener('click', function(event) {
+        // Prevent default form submission behavior
+        event.preventDefault();
+
+        // Redirect the user to the login page
+        window.location.href = '../yaser/profileInfo.html';
+    });
+
     fetchConferences();
 
     // Add event listeners for conference categories
