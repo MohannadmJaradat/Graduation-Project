@@ -15,7 +15,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     const data = await response.json();
     if (response.ok) {
         localStorage.setItem('token', data.token);
-        window.location.href = '../Homepage/user-homepage.html'; // Replace with the actual homepage URL
+        window.location.href = '../Homepage/user-homepage.html'; 
     } else {
         alert('Error: ' + data.message);
     }

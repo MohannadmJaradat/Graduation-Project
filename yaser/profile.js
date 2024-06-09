@@ -3,17 +3,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const token = localStorage.getItem('token');
 
         if (!token) {
-            console.error('Token not found in local storage');
+            window.location.href = '../Login/login.html'; 
             return;
         }
 
-        const response = await fetch('http://localhost:3000/user/get-user', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        });
 
         const userData = await response.json();
 

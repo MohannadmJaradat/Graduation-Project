@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-        // Verify token with the server
-        fetch('http://localhost:3000/user-homepage')
+    
     fetchConferences();
 });
 

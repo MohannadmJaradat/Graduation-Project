@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const token = localStorage.getItem('token');
 
         if (!token) {
-            console.error('Token not found in local storage');
-            return;
+            window.location.href = '../Login/login.html'; 
         }
 
         const response = await fetch('http://localhost:3000/user/get-user', {
