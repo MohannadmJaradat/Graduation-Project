@@ -7,6 +7,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
+        const response = await fetch('http://localhost:3000/user/get-user', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
 
         const userData = await response.json();
 
