@@ -44,6 +44,10 @@ document.getElementById('email-btn').addEventListener('click', async (event) => 
 
     const newEmail = document.getElementById('newEmail').value;
     const confirmEmail = document.getElementById('confirmEmail').value;
+    if (newEmail == confirmEmail && newEmail=="") {
+        alert('New email should not be empty.');
+        return;
+    }
 
     if (newEmail !== confirmEmail) {
         alert('New email and confirm email must match.');
