@@ -61,7 +61,7 @@ function displayConferences(conferences) {
             <div class="col-lg-4 col-md-6 mb-4 popular-conference-div">
                 <div class="card popular-conference-card">
                     <a href="">
-                        <img src="" class="card-img-top popular-conference-image" alt="${conference.title}">
+                        <img src="${conference.poster}" class="card-img-top popular-conference-image" alt="${conference.title}">
                         <div class="card-body">
                             <h3>${conference.title}</h3>
                             <p class="card-text">${conference.description}</p>

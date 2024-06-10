@@ -77,6 +77,8 @@ document.getElementById('email-btn').addEventListener('click', async (event) => 
             console.error('Error updating email:', errorMessage);
             alert(errorMessage);
         }
+        localStorage.removeItem('token');
+        window.location.href = '../Login/login.html';
     } catch (error) {
         console.error('Error updating email:', error);
         alert('An error occurred while updating the email.');

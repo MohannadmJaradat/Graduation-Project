@@ -43,7 +43,6 @@ document.getElementById('profileForm').addEventListener('submit', async (event) 
 
     const data = {
         fullName: document.getElementById('fullName').value,
-        email: document.getElementById('email').value,
         googleScholarUsername: document.getElementById('googleScholar').value,
         webPage: document.getElementById('webPage').value,
         university: document.getElementById('university').value,
@@ -74,10 +73,11 @@ document.getElementById('profileForm').addEventListener('submit', async (event) 
                 errorMessage = 'An error occurred while updating the profile.'; // Default error message
             }
             console.error('Error updating profile:', errorMessage);
-            alert(errorMessage);
+            alert(errorMessage.message || errorMessage);
         }
     } catch (error) {
         console.error('Error updating profile:', error);
         alert('An error occurred while updating the profile.');
     }
 });
+
