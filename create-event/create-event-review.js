@@ -1,28 +1,3 @@
-window.addEventListener('DOMContentLoaded', async () => {
-  try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-          window.location.href = '../Login/login.html'; 
-      }
-  } catch (error) {
-      // Handle error
-  }
-});
-
-window.addEventListener("load", loadData);
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const token = localStorage.getItem('token');
-
-        if (!token) {
-            window.location.href = '../Login/login.html'; 
-        }
-    } catch (error) {
-        console.error('Error checking token:', error);
-    }
-
-    loadData();
-});
 document.addEventListener('DOMContentLoaded', async () => {
   try {
       const token = localStorage.getItem('token');
