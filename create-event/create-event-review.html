@@ -10,21 +10,19 @@
     <link rel="stylesheet" href="create-event-review.css">
 </head>
 
-<!--header------------------------------------------------------------------>
+<body>
 <header class="p-2 header">
     <div class="container align-items-center header-container">
         <div class="d-flex flex-wrap align-items-center justify-content-between">
             <a href="../Homepage/user-homepage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none" style="margin-left: 3%;">
-                <h2 style="color: #FFE047;"><img src="../assets/icons8-ticket-50.png" style="width:50px ; height:50px; margin-right: 10px; " class="d-inline-block align-text-top">Evenfy</h2>
+                <h2 style="color: #FFE047;"><img src="../assets/icons8-ticket-50.png" style="width:50px ; height:50px; margin-right: 10px;" class="d-inline-block align-text-top">Evenfy</h2>
             </a>
-
             <ul class="header-container container container-sm container-md nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="../Homepage/user-homepage.html" class="nav-link px-4 text-white header-nav-link">Home</a></li>
                 <li><a href="#" class="nav-link px-4 text-white header-nav-link">About</a></li>
                 <li><a href="#" class="nav-link px-4 text-white header-nav-link">Contact</a></li>
                 <li><a href="../faqs/faqs-user.html" class="nav-link px-4 text-white header-nav-link">FAQs</a></li>
             </ul>
-
             <div class="text-center text-md-end header-media-1" style="margin-right: 3%;">
                 <div class="d-flex flex-column flex-md-row align-items-center">
                     <button type="button" class="btn btn-outline-light me-2 header-media-2">Create Conference</button>
@@ -48,7 +46,7 @@
         </div>
     </div>
 </header>
-<!--header------------------------------------------------------------------>
+
 <div class="main-create-event-advanced">
     <div class="create-event-advanced-title-div">
         <a href=""><img class="create-event-advanced-back-button" src="../assets/icons8-back-50.png" alt=""></a>
@@ -61,35 +59,30 @@
     </div>
     <div class="col-md-8 col-lg-8 col-xl-8 col-sm-12 main-input-group-div mx-auto">
         <img src="../assets/conference banner5.jpg" alt="Conference Banner" width="100%" height="400" class="mb-5">
-
         <h1 class="mb-5"><strong>Event Title</strong></h1>
         <h4 class="mb-3">Date</h4>
-        <p class="mb-5">DD/MM/YYYY</p>
+        <p class="date mb-5">DD/MM/YYYY</p>
         <h4 class="mb-3">Location</h4>
-        <p class="mb-3">Address</p>
+        <p class="location mb-3">Address</p>
         <img src="../assets/conference banner5.jpg" alt="Conference Banner" width="55%" height="350" class="mb-5">
         <h4 class="mb-3">Hosted by</h4>
-        <p class="mb-5">Host Name</p>
+        <p class="host mb-5">Host Name</p>
         <h4 class="mb-3">Conference Description</h4>
-        <p>
-
+        <p class="description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et neque a purus convallis efficitur. Quisque ante leo, porta a luctus non, venenatis eget metus. Vivamus at blandit enim. Pellentesque feugiat tellus et elit dictum, ut congue metus bibendum.
             Fusce imperdiet ligula lectus, a ultricies ex pellentesque non. Fusce in orci nec tortor elementum porta eu eu nibh. Nunc vestibulum libero eget volutpat efficitur. Proin facilisis ligula leo. Ut vitae ullamcorper justo. Integer non dui accumsan
             risus pellentesque gravida quis vel libero. Vivamus porttitor consequat urna. Curabitur sapien dui, tempus nec quam a, tincidunt euismod nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent
             viverra, enim ac convallis rutrum, dui tellus sodales libero, sed suscipit urna lacus vitae quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ligula dui, porta a diam quis, tempor iaculis elit. Vestibulum pretium erat
             vitae lacus pretium posuere. Nulla volutpat, arcu eget eleifend rutrum, felis massa iaculis magna, eget vestibulum urna nisl vel tortor.
         </p>
-
-
     </div>
     <div class="col-md-8 col-lg-8 col-xl-8 mx-auto">
         <div class="d-grid gap-2 col-lg-6 col-md-12">
-            <button class="btn save-and-continue-btn" type="submit">Save & Continue</button>
+            <button id="save-btn" class="btn save-and-continue-btn" type="submit">Save & Continue</button>
         </div>
     </div>
-
 </div>
-<!--footer------------------------------------------------------------------>
+
 <div class="footer">
     <div class="container col-lg-12">
         <footer class="py-3 my-4">
@@ -103,9 +96,9 @@
         </footer>
     </div>
 </div>
-<!--footer------------------------------------------------------------------>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz " crossorigin="anonymous "></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="./create-event-review.js"></script>
 </body>
 
 </html>
