@@ -72,7 +72,7 @@ function displayConferences(conferences) {
         const conferenceHTML = `
             <div class="col-lg-4 col-md-6 mb-4 popular-conference-div">
                 <div class="card popular-conference-card">
-                    <a>
+                    <a href="../yaser/index.html" data-conference-id="${conference._id}">
                         <img src="${posterSrc}" class="card-img-top popular-conference-image" alt="${conference.title}" onerror="this.onerror=null;this.src='../assets/medical.jpg';">
                         <div class="card-body">
                             <h3>${conference.title}</h3>
@@ -82,7 +82,17 @@ function displayConferences(conferences) {
                 </div>
             </div>
         `;
+        
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
+    });
+
+    // Add event listener to save conference ID on click
+    const conferenceLinks = document.querySelectorAll('.popular-conference-card a');
+    conferenceLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            const conferenceId = this.getAttribute('data-conference-id');
+            localStorage.setItem('conId', conferenceId);
+        });
     });
 }
 

@@ -83,6 +83,7 @@ function displayConferences(conferences) {
                 </div>
             </a>
         `;
+        // alert(conference.title)
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
     });
 }
