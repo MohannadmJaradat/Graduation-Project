@@ -32,6 +32,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         }
     }
+async function getroletype(conferenceid){
+    try {
+    
+        const response = await fetch('http://localhost:3000/conference/get-roletype', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify({conferenceid})
+        });
+        const user = await response.json();
+        //alert(user)//here 3mk
+        return user;
+    } catch (error) {
+    }
+}    
 async function fetchConferences() {
     try {
         const response = await fetch('http://localhost:3000/conference/get-conferencesByUserId', {
@@ -63,9 +80,10 @@ function truncateText(text, wordLimit) {
 function displayConferences(conferences) {
     const conferencesContainer = document.getElementById("con");
     conferencesContainer.innerHTML = ''; // Clear existing content
-
-    conferences.forEach(conference => {
-        // Use fallback image if conference.poster is not valid
+    
+    conferences.forEach(async conference => {
+        const type = await getroletype(conference._id)
+       //alert(type)//[object Promise]
         const posterSrc = conference.poster && conference.poster.trim() !== "" ? conference.poster : '../assets/medical.jpg';
         const truncatedDescription = truncateText(conference.description, 20);
         const conferenceHTML = `<div class="col-md-12 col-lg-6 mx-auto gap-5 popular-conference-div">
@@ -75,7 +93,7 @@ function displayConferences(conferences) {
                             <div class="card-body card-body-test">
                                 <h3 class="card-body-test">${conference.title}</h3>
                                 <p class="card-text card-body-test">${truncatedDescription}</p>
-                                <p class="text-body-secondary">Your role in this conference is: Member</p>
+                                <p class="text-body-secondary">your role in this conference is: ${type}</p>
                             </div>
                         </a>
                     </div>
