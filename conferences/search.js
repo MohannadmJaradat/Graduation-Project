@@ -30,21 +30,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Add event listeners for conference categories (if any)
     
 });
-
 async function fetchConferences() {
     try {
-        const category = localStorage.getItem('category');
-        if (!category) {
-            throw new Error('Category not found in localStorage');
+        const searchInput = localStorage.getItem('searchInput');
+        const country = localStorage.getItem('selectCountry');
+
+        if (!searchInput) {
+            throw new Error('Search not found in localStorage');
         }
-        // Fetch conferences by category
-        const response = await fetch('http://localhost:3000/conference/conferencesByCategory', {
+
+        const response = await fetch('http://localhost:3000/conference/search-conference', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
-            body: JSON.stringify({ category })
+            body: JSON.stringify({ search: searchInput})
         });
 
         if (!response.ok) {
@@ -65,27 +66,30 @@ function displayConferences(conferences) {
     conferencesContainer.innerHTML = ''; // Clear existing content
     conferences.forEach(conference => {
         const conferenceHTML = `
-            <a href="#">
-                <div class="card mb-3 card-div" style="max-width: 540px;">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <img src="${conference.imageUrl}" class="img-fluid rounded-start rounded-bottom rounded-top" alt="Conference Image">
-                        </div>
-                        <div class="col-md-7">
-                            <div class="card-body">
-                                <h5 class="card-title">${conference.title}</h5>
-                                <p class="card-text">${conference.description}</p>
-                                <p>${conference.date} | ${conference.location}</p>
-                                <p class="card-text"><small class="text-body-secondary">${conference.time}</small></p>
-                            </div>
+        <a href="#">
+            <div class="card mb-3 card-div" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img src="${conference.imageUrl}" class="img-fluid rounded-start rounded-bottom rounded-top" alt="Conference Image">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h5 class="card-title">${conference.title}</h5>
+                            <p class="card-text">${conference.description}</p>
+                            <p>${conference.date} | ${conference.location}</p>
+                            <p class="card-text"><small class="text-body-secondary">${conference.time}</small></p>
                         </div>
                     </div>
                 </div>
-            </a>
-        `;
+            </div>
+        </a>
+    `;
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
     });
 }
+
+// Call fetchConferences on page load or based on specific event
+document.addEventListener('DOMContentLoaded', fetchConferences);
 
 // Event listener for the create conference button
 const createConferenceBtn = document.getElementById("create-btna");

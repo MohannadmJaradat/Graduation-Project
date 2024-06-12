@@ -38,6 +38,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
         }
     });
+    document.getElementById('search-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const searchInput = document.getElementById('search-input').value;
+        const selectCountry = document.getElementById('select-country').value;
+        localStorage.setItem('searchInput', searchInput);
+        localStorage.setItem('selectCountry', selectCountry);
+        window.location.href = '../conferences/searchconferences.html';
+    });
 });
 
 async function fetchConferences() {
