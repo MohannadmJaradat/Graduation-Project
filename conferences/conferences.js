@@ -31,6 +31,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
 });
 
+function truncateText(text, wordLimit) {
+    const words = text.split(' ');
+    if (words.length > wordLimit) {
+        return words.slice(0, wordLimit).join(' ') + '...';
+    }
+    return text;
+}
 async function fetchConferences() {
     try {
         const category = localStorage.getItem('category');
@@ -58,13 +65,15 @@ async function fetchConferences() {
         alert("Problem fetching conferences");
         console.error('Error fetching conferences:', error);
     }
-}function displayConferences(conferences) {
+}
+
+function displayConferences(conferences) {
     const conferencesContainer = document.getElementById("con");
     conferencesContainer.innerHTML = ''; // Clear existing content
-    
     conferences.forEach(conference => {
+        const truncatedDescription = truncateText(conference.description, 20); // Limit to 20 words
         const conferenceHTML = `
-            <div class="col-md-6">
+        <div class="col-md-6">
             <a href="../yaser/index.html" class="conference-link" data-conference-id="${conference._id}">
                 <div class="card mb-3 card-div" style="max-width: 540px;">
                     <div class="row g-0">
@@ -74,7 +83,7 @@ async function fetchConferences() {
                         <div class="col-xl-7 col-lg-12 col-md-12">
                             <div class="card-body">
                                 <h5 class="card-title">${conference.title}</h5>
-                                <p class="card-text">${conference.description}</p>
+                                <p class="card-text">${truncatedDescription}</p>
                                 <p>${conference.date} | ${conference.location}</p>
                                 <p class="card-text"><small class="text-body-secondary">${conference.time}</small></p>
                             </div>
@@ -82,7 +91,7 @@ async function fetchConferences() {
                     </div>
                 </div>
             </a>
-        </div> 
+        </div>    
         `;
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
     });
@@ -95,9 +104,6 @@ async function fetchConferences() {
         });
     });
 }
-
-
-
 
 // Event listener for the create conference button
 const createConferenceBtn = document.getElementById("create-btna");

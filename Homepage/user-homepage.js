@@ -86,7 +86,7 @@ async function fetchConferences() {
 }
 
 function displayConferences(conferences) {
-    const conferencesContainer = document.querySelector('.row');
+    const conferencesContainer = document.getElementById("con");
     conferencesContainer.innerHTML = ''; // Clear existing content
 
     conferences.forEach(conference => {

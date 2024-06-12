@@ -60,11 +60,18 @@ async function fetchConferences() {
         // console.error('Error fetching conferences:', error);
     }
 }
-
+function truncateText(text, wordLimit) {
+    const words = text.split(' ');
+    if (words.length > wordLimit) {
+        return words.slice(0, wordLimit).join(' ') + '...';
+    }
+    return text;
+}
 function displayConferences(conferences) {
     const conferencesContainer = document.getElementById("con");
     conferencesContainer.innerHTML = ''; // Clear existing content
     conferences.forEach(conference => {
+        const truncatedDescription = truncateText(conference.description, 20); // Limit to 20 words
         const conferenceHTML = `
         <div class="col-md-6">
             <a href="../yaser/index.html" class="conference-link" data-conference-id="${conference._id}">
@@ -76,7 +83,7 @@ function displayConferences(conferences) {
                         <div class="col-xl-7 col-lg-12 col-md-12">
                             <div class="card-body">
                                 <h5 class="card-title">${conference.title}</h5>
-                                <p class="card-text">${conference.description}</p>
+                                <p class="card-text">${truncatedDescription}</p>
                                 <p>${conference.date} | ${conference.location}</p>
                                 <p class="card-text"><small class="text-body-secondary">${conference.time}</small></p>
                             </div>
@@ -113,3 +120,5 @@ function goToCreateConference() {
         window.location.href = '../create-event/create-event-edit.html';
     }
 }
+
+       
