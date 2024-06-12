@@ -27,7 +27,7 @@
 
             <div class="text-center text-md-end header-media-1" style="margin-right: 3%;">
                 <div class="d-flex flex-column flex-md-row align-items-center">
-                    <button type="button" class="btn btn-outline-light me-2 header-media-2">Create Conference</button>
+                    <button id="create-btna" type="button" class="btn btn-outline-light me-2 header-media-2">Create Conference</button>
                     <div class="dropdown text-end dropdown-media">
                         <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle text-white user-header-dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="../assets/icons8-user-50.png" alt="mdo" width="32" height="32" class="rounded-circle">
@@ -54,7 +54,7 @@
     <div class="create-event-advanced-title-div">
         <div class="create-event-advanced-title-div">
             <a href=""><img class="create-event-advanced-back-button" src="../assets/icons8-back-50.png" alt=""></a>
-            <h2 class="create-event-advanced-title-h2">Name</h2>
+            <h2 id="name" class="create-event-advanced-title-h2"></h2>
         </div>
 
     </div>
@@ -65,59 +65,8 @@
         <!--<h3>Review Submissions</h3>-->
 
         <div class="container mt-5 mx-auto">
-            <div class="row">
-                <div class="col-md-12 col-lg-6 mx-auto gap-5 popular-conference-div">
-                    <div class="card test-card" style="min-width: 18rem;">
-                        <a href="">
-                            <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
-                            <div class="card-body card-body-test">
-                                <h3 class="card-body-test">Neque porro quisquam</h3>
-                                <p class="card-text card-body-test">Sed convallis fermentum leo vitae placerat. Vivamus vitae posuere est, ut posuere mi. Nunc eu sem varius, sollicitudin lacus at, egestas mi. Nam et fringilla ante, nec rutrum justo. Sed consequat elit turpis, vitae sollicitudin
-                                    est volutpat vitae. Quisque sem arcu, ultricies a nulla quis, consequat molestie enim</p>
-                                <p class="text-body-secondary">Your role in this conference is: Manager</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-6 mx-auto gap-5 popular-conference-div">
-                    <div class="card test-card" style="min-width: 18rem;">
-                        <a href="">
-                            <img src="../assets/conference banner1.jpg" class="card-img-top" alt="...">
-                            <div class="card-body card-body-test">
-                                <h3 class="card-body-test">Neque porro quisquam</h3>
-                                <p class="card-text card-body-test">Sed convallis fermentum leo vitae placerat. Vivamus vitae posuere est, ut posuere mi. Nunc eu sem varius, sollicitudin lacus at, egestas mi. Nam et fringilla ante, nec rutrum justo. Sed consequat elit turpis, vitae sollicitudin
-                                    est volutpat vitae. Quisque sem arcu, ultricies a nulla quis, consequat molestie enim</p>
-                                <p class="text-body-secondary">Your role in this conference is: Author</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-6 mx-auto gap-5 popular-conference-div">
-                    <div class="card test-card" style="min-width: 18rem;">
-                        <a href="">
-                            <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
-                            <div class="card-body card-body-test">
-                                <h3 class="card-body-test">Neque porro quisquam</h3>
-                                <p class="card-text card-body-test">Sed convallis fermentum leo vitae placerat. Vivamus vitae posuere est, ut posuere mi. Nunc eu sem varius, sollicitudin lacus at, egestas mi. Nam et fringilla ante, nec rutrum justo. Sed consequat elit turpis, vitae sollicitudin
-                                    est volutpat vitae. Quisque sem arcu, ultricies a nulla quis, consequat molestie enim</p>
-                                <p class="text-body-secondary">Your role in this conference is: Member</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-6 mx-auto gap-5 popular-conference-div">
-                    <div class="card test-card" style="min-width: 18rem;">
-                        <a href="">
-                            <img src="../assets/conference banner1.jpg" class="card-img-top" alt="...">
-                            <div class="card-body card-body-test">
-                                <h3 class="card-body-test">Neque porro quisquam</h3>
-                                <p class="card-text card-body-test">Sed convallis fermentum leo vitae placerat. Vivamus vitae posuere est, ut posuere mi. Nunc eu sem varius, sollicitudin lacus at, egestas mi. Nam et fringilla ante, nec rutrum justo. Sed consequat elit turpis, vitae sollicitudin
-                                    est volutpat vitae. Quisque sem arcu, ultricies a nulla quis, consequat molestie enim</p>
-                                <p class="text-body-secondary">Your role in this conference is: Suprevisor</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+            <div id="con" class="row">
+                
             </div>
         </div>
 
@@ -142,6 +91,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz " crossorigin="anonymous "></script>
 <script src="../log-out-btn/log_out.js"></script>
+<script src="./myconferences.js"></script>
 </body>
 
 </html>
