@@ -62,17 +62,18 @@ async function fetchConferences() {
 }
 
 function displayConferences(conferences) {
-    const conferencesContainer = document.querySelector('.col-md-9 .conference-cards .row');
+    const conferencesContainer = document.getElementById("con");
     conferencesContainer.innerHTML = ''; // Clear existing content
     conferences.forEach(conference => {
         const conferenceHTML = `
+        <div class="col-md-6">
             <a href="../yaser/index.html" class="conference-link" data-conference-id="${conference._id}">
                 <div class="card mb-3 card-div" style="max-width: 540px;">
                     <div class="row g-0">
-                        <div class="col-md-5">
+                        <div class="col-xl-5 col-lg-12 col-md-12">
                             <img src="${conference.imageUrl}" class="img-fluid rounded-start rounded-bottom rounded-top" alt="Conference Image">
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-xl-7 col-lg-12 col-md-12">
                             <div class="card-body">
                                 <h5 class="card-title">${conference.title}</h5>
                                 <p class="card-text">${conference.description}</p>
@@ -83,6 +84,7 @@ function displayConferences(conferences) {
                     </div>
                 </div>
             </a>
+        </div>    
         `;
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
     });
