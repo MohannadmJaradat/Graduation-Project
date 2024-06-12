@@ -1,0 +1,107 @@
+/* Header */
+
+.header {
+    background-color: #2B293D;
+}
+
+.header-container {
+    max-width: 100%;
+}
+
+.header-nav-link {
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.header-nav-link:hover {
+    color: #FFE047 !important;
+    border-bottom-color: #FFE047;
+}
+
+.user-header-dropdown-toggle {
+    color: #FFFF;
+    padding-left: 10px;
+}
+
+.user-header-dropdown-toggle:focus {
+    color: #FFFF !important;
+}
+
+.dropdown-toggle:hover {
+    color: white !important;
+}
+
+@media (max-width: 991px) {
+    .header-media-1 {
+        text-align: center !important;
+        margin-right: 30%;
+        margin-left: 30%;
+    }
+    .header-media-2 {
+        margin-top: 10%;
+    }
+    .dropdown-media {
+        margin-top: 10%;
+    }
+}
+
+
+/* Main Content */
+
+.faqs {
+    color: #FFE047;
+    border-bottom-color: #FFE047;
+}
+
+.main-create-event-edit {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.main-input-group-div {
+    margin-top: 4%;
+    padding: 40px;
+}
+
+.save-and-continue-btn {
+    margin-top: 20%;
+    background-color: #2B293D;
+    color: #FFFF;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.save-and-continue-btn:hover {
+    background-color: #514e6e;
+    /* New background color */
+    color: white;
+    /* New text color */
+}
+
+
+/* Footer */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2B293D;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 0 0;
+}
+
+.footer-nav-link {
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.footer-nav-link:hover {
+    color: #FFE047 !important;
+    border-bottom-color: #FFE047;
+}
+
+.text-white {
+    color: white;
+}
