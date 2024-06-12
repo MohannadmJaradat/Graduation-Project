@@ -6,16 +6,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     // Add an event listener to the logout button
-    document.getElementById('logoutButton').addEventListener('click', function(event) {
-        // Prevent default form submission behavior
-        event.preventDefault();
+    // document.getElementById('logoutButton').addEventListener('click', function(event) {
+    //     // Prevent default form submission behavior
+    //     event.preventDefault();
 
-        // Remove the token from localStorage
-        localStorage.removeItem('token');
+    //     // Remove the token from localStorage
+    //     localStorage.removeItem('token');
 
-        // Redirect the user to the login page
-        window.location.href = '../Login/login.html';
-    });
+    //     // Redirect the user to the login page
+    //     window.location.href = '../Login/login.html';
+    // });
     document.getElementById('search-form').addEventListener('submit', function(event) {
         event.preventDefault();
         const searchInput = document.getElementById('search-input').value;
@@ -45,19 +45,19 @@ async function fetchConferences() {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
-            body: JSON.stringify({ search: searchInput})
+            body: JSON.stringify({ search: searchInput, country})
         });
 
-        if (!response.ok) {
-            alert("Failed to fetch conferences");
-            throw new Error('Failed to fetch conferences');
-        }
+        // if (!response.ok) {
+        //     alert("Failed to fetch conferences");
+        //     throw new Error('Failed to fetch conferences');
+        // }
 
         const conferences = await response.json();
         displayConferences(conferences);
     } catch (error) {
-        alert("Problem fetching conferences");
-        console.error('Error fetching conferences:', error);
+        // alert("Problem fetching conferences");
+        // console.error('Error fetching conferences:', error);
     }
 }
 

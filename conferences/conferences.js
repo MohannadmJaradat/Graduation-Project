@@ -6,16 +6,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     // Add an event listener to the logout button
-    document.getElementById('logoutButton').addEventListener('click', function(event) {
-        // Prevent default form submission behavior
-        event.preventDefault();
+    // document.getElementById('logoutButton').addEventListener('click', function(event) {
+    //     // Prevent default form submission behavior
+    //     event.preventDefault();
 
-        // Remove the token from localStorage
-        localStorage.removeItem('token');
+    //     // Remove the token from localStorage
+    //     localStorage.removeItem('token');
 
-        // Redirect the user to the login page
-        window.location.href = '../Login/login.html';
-    });
+    //     // Redirect the user to the login page
+    //     window.location.href = '../Login/login.html';
+    // });
     document.getElementById('search-form').addEventListener('submit', function(event) {
         event.preventDefault();
         const searchInput = document.getElementById('search-input').value;

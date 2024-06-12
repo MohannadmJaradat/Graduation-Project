@@ -10,11 +10,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-document.getElementById('logout-btn').addEventListener('click', function(event) {
-    event.preventDefault();
-    localStorage.removeItem('token');
-    window.location.href = '../Login/login.html';
-});
+// document.getElementById('logout-btn').addEventListener('click', function(event) {
+//     event.preventDefault();
+//     localStorage.removeItem('token');
+//     window.location.href = '../Login/login.html';
+// });
 
 document.getElementById('savepass-btn').addEventListener('click', async function(event) {
     event.preventDefault();
