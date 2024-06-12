@@ -147,7 +147,7 @@ a {
     justify-content: center;
     align-items: center;
     background-color: #2B293D;
-    padding: 0;
+    margin-top: 4%;
 }
 
 .footer-nav-link {
