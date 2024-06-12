@@ -35,7 +35,6 @@ async function getuser(conference) {
 async function fetchConferences() {
     try {
         const conId = await localStorage.getItem('conId');
-        alert(conId)
         if (!conId) {
             throw new Error('conId not found in localStorage');
         }

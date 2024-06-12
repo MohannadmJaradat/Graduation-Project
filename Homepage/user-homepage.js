@@ -40,10 +40,34 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
     document.getElementById('search-form').addEventListener('submit', function(event) {
         event.preventDefault();
+        var countries = [
+            "Irbid",
+            "Ajloun",
+            "Jerash",
+            "Mafraq",
+            "Balqa",
+            "Amman",
+            "Zarqa",
+            "Madaba",
+            "Karak",
+            "Tafilah",
+            "Ma'an",
+            "Aqaba"
+        ];
         const searchInput = document.getElementById('search-input').value;
         const selectCountry = document.getElementById('select-country').value;
         localStorage.setItem('searchInput', searchInput);
-        localStorage.setItem('selectCountry', selectCountry);
+        if(countries[selectCountry-1]){
+        localStorage.setItem('selectCountry', countries[selectCountry-1]);
+                alert(countries[selectCountry-1])
+
+        }
+        else{
+            localStorage.setItem('selectCountry', "Irbid");
+            
+        }
+        
+        
         window.location.href = '../conferences/searchconferences.html';
     });
 });
