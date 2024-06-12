@@ -52,6 +52,10 @@
 
 /*header-----------------------------------------------*/
 
+a {
+    text-decoration: none;
+}
+
 .main-create-event-advanced {
     margin-top: 2%;
     margin-left: 2%;
@@ -134,6 +138,10 @@ hr {
     box-shadow: 0 0 15px 5px #2B293D;
     cursor: pointer;
     /* Change cursor on hover to pointer */
+}
+
+.card-body-test {
+    color: black;
 }
 
 
