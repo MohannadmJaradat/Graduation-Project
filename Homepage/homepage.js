@@ -15,19 +15,26 @@ async function fetchConferences() {
         console.error('Error fetching conferences:', error);
     }
 }
-
+function truncateText(text, wordLimit) {
+    const words = text.split(' ');
+    if (words.length > wordLimit) {
+        return words.slice(0, wordLimit).join(' ') + '...';
+    }
+    return text;
+}
 function displayConferences(conferences) {
-    const conferencesContainer = document.querySelector('.row1');
+    const conferencesContainer = document.getElementById("con");
     conferencesContainer.innerHTML = ''; // Clear existing content
     conferences.forEach(conference => {
+        const truncatedDescription = truncateText(conference.description, 20);
         const conferenceHTML = `
             <div class="col-lg-4 col-md-6 mb-4 popular-conference-div">
                 <div class="card popular-conference-card">
-                    <a href="">
+                    <a href="../login/login.html">
                         <img src="" class="card-img-top popular-conference-image" alt="${conference.title}">
                         <div class="card-body">
                             <h3>${conference.title}</h3>
-                            <p class="card-text">${conference.description}</p>
+                            <p class="card-text">${truncatedDescription}</p>
                         </div>
                     </a>
                 </div>
