@@ -66,25 +66,33 @@ function displayConferences(conferences) {
     conferencesContainer.innerHTML = ''; // Clear existing content
     conferences.forEach(conference => {
         const conferenceHTML = `
-        <a href="#">
-            <div class="card mb-3 card-div" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-5">
-                        <img src="${conference.imageUrl}" class="img-fluid rounded-start rounded-bottom rounded-top" alt="Conference Image">
-                    </div>
-                    <div class="col-md-7">
-                        <div class="card-body">
-                            <h5 class="card-title">${conference.title}</h5>
-                            <p class="card-text">${conference.description}</p>
-                            <p>${conference.date} | ${conference.location}</p>
-                            <p class="card-text"><small class="text-body-secondary">${conference.time}</small></p>
+            <a href="../yaser/index.html" class="conference-link" data-conference-id="${conference._id}">
+                <div class="card mb-3 card-div" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <img src="${conference.imageUrl}" class="img-fluid rounded-start rounded-bottom rounded-top" alt="Conference Image">
+                        </div>
+                        <div class="col-md-7">
+                            <div class="card-body">
+                                <h5 class="card-title">${conference.title}</h5>
+                                <p class="card-text">${conference.description}</p>
+                                <p>${conference.date} | ${conference.location}</p>
+                                <p class="card-text"><small class="text-body-secondary">${conference.time}</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </a>
-    `;
+            </a>
+        `;
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
+    });
+    // Add event listener to save conference ID on click
+    const conferenceLinks = document.querySelectorAll('.conference-link');
+    conferenceLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            const conferenceId = this.getAttribute('data-conference-id');
+            localStorage.setItem('conId', conferenceId);
+        });
     });
 }
 

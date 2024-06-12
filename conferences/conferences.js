@@ -58,14 +58,13 @@ async function fetchConferences() {
         alert("Problem fetching conferences");
         console.error('Error fetching conferences:', error);
     }
-}
-
-function displayConferences(conferences) {
+}function displayConferences(conferences) {
     const conferencesContainer = document.querySelector('.col-md-9 .conference-cards .row');
     conferencesContainer.innerHTML = ''; // Clear existing content
+    
     conferences.forEach(conference => {
         const conferenceHTML = `
-            <a href="#">
+            <a href="../yaser/index.html" class="conference-link" data-conference-id="${conference._id}">
                 <div class="card mb-3 card-div" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-5">
@@ -83,10 +82,20 @@ function displayConferences(conferences) {
                 </div>
             </a>
         `;
-        // alert(conference.title)
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
     });
+    // Add event listener to save conference ID on click
+    const conferenceLinks = document.querySelectorAll('.conference-link');
+    conferenceLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            const conferenceId = this.getAttribute('data-conference-id');
+            localStorage.setItem('conId', conferenceId);
+        });
+    });
 }
+
+
+
 
 // Event listener for the create conference button
 const createConferenceBtn = document.getElementById("create-btna");
