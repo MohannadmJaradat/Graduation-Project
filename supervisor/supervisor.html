@@ -19,10 +19,10 @@
             </a>
 
             <ul class="header-container container container-sm container-md nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-4 text-white header-nav-link">Home</a></li>
-                <li><a href="#" class="nav-link px-4 text-white header-nav-link">About</a></li>
-                <li><a href="#" class="nav-link px-4 text-white header-nav-link">Contact</a></li>
-                <li><a href="#" class="nav-link px-4 text-white header-nav-link">FAQs</a></li>
+                <li><a href="../Homepage/user-homepage.html" class="nav-link px-4 text-white footer-nav-link">Home</a></li>
+                <li><a href="../about-us/about-us.html" class="nav-link px-4 text-white footer-nav-link">About</a></li>
+                <li><a href="../contact/contact.html" class="nav-link px-4 text-white footer-nav-link">Contact</a></li>
+                <li><a href="../faqs/faqs-user.html" class="nav-link px-4 text-white footer-nav-link">FAQs</a></li>
             </ul>
 
             <div class="text-center text-md-end header-media-1" style="margin-right: 3%;">
@@ -34,12 +34,12 @@
                             <span class="text-white user-header-profile-text">Profile</span>
                         </a>
                         <ul class="dropdown-menu text-small">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="#">My Conferences</a></li>
+                            <li><a class="dropdown-item" href="../yaser/profileInfo.html">Profile</a></li>
+                            <li><a class="dropdown-item" href="../my-conferences/my-conferences.html">My Conferences</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Log out</a></li>
+                            <li><button id="logoutButton" class="dropdown-item">Log out</button></li>
                         </ul>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
 <!--header------------------------------------------------------------------>
 <div class="main-create-event-advanced">
     <div class="create-event-advanced-title-div">
-        <h2 class="create-event-advanced-title-h2">Name</h2>
+        <h2 id="name" class="create-event-advanced-title-h2">Name</h2>
     </div>
 
 
@@ -64,12 +64,14 @@
                 <div class="col-md-6 col-lg-6">
                     <label for="max-num-of-submissions" class="form-label">Conference Title</label>
                     <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="max-num-of-submissions" placeholder="Enter the title of the conference">
+                        <input type="text" class="form-control" id="max-num-of-submissions" placeholder="Enter the title of the conference" >
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
-                    <label for="exampleInputEmail1" class="form-label">Member email<span style="color: red;">*</span></label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the emial of the member" required>
+                    <label for="max-num-of-attendees" class="form-label">Member email<span style="color: red;">*</span></label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="max-num-of-attendees" placeholder="Enter the email of the member" required>
+                    </div>
                 </div>
                 <hr>
                 <div class="col-md-12 col-lg-12">
@@ -116,7 +118,7 @@
                 <!--view conference members starts here-->
 
                 <div class="col-md-12 col-lg-8 d-grid mx-auto mt-4">
-                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">View Conference Members</button>
+                    <button id="viewmembers" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">View Conference Members</button>
                 </div>
 
                 <!-- Modal -->
@@ -125,59 +127,20 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Conference Members</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" id="closeButton" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <table class="table table-striped" style="text-align: center;">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
                                             <th scope="col">Role</th>
                                             <th scope="col">#</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>
-                                                <div class="mx-auto col-6 d-grid">
-                                                    <button type="button" class="btn btn-danger">Remove member</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>
-                                                <div class="mx-auto col-6 d-grid">
-                                                    <button type="button" class="btn btn-danger">Remove member</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry the Bird</td>
-                                            <td>Thornton</td>
-                                            <td>
-                                                <div class="mx-auto col-6 d-grid">
-                                                    <button type="button" class="btn btn-danger">Remove member</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Mohannad Jaradat</td>
-                                            <td>Manager</td>
-                                            <td>
-                                                <div class="mx-auto col-6 d-grid">
-                                                    <button type="button" class="btn btn-danger">Remove member</button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                    <tbody id="conmember">
+
                                     </tbody>
                                 </table>
                             </div>
@@ -187,69 +150,17 @@
                 </div>
 
                 <!--view conference members ends here-->
-
             </div>
-
-        </form>
         <hr>
         <h3>Submissions</h3>
 
         <div class="container mt-5 mx-auto">
-            <div class="row">
-                <div class="col-md-12 col-lg-6 mx-auto gap-5">
-                    <div class="card test-card" style="min-width: 18rem;">
-                        <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Author's name: Yaser</p>
-                            <p class="card-text">Average score: 7</p>
-                        </div>
-                        <div class="d-flex mx-auto gap-2">
-                            <button type="button" class="btn btn-success test-button">Accept</button>
-                            <button type="button" class="btn btn-danger test-button">Reject</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-6 mx-auto gap-5">
-                    <div class="card test-card" style="min-width: 18rem;">
-                        <img src="../assets/conference banner1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Author's name: Mustafa Msameh</p>
-                            <p class="card-text">Average score: 0</p>
-                        </div>
-                        <div class="d-flex mx-auto gap-2">
-                            <button type="button" class="btn btn-success test-button">Accept</button>
-                            <button type="button" class="btn btn-danger test-button">Reject</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-6 mx-auto gap-5">
-                    <div class="card test-card" style="min-width: 18rem;">
-                        <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Author's name: Yaser</p>
-                            <p class="card-text">Average score: 7</p>
-                        </div>
-                        <div class="d-flex mx-auto gap-2">
-                            <button type="button" class="btn btn-success test-button">Accept</button>
-                            <button type="button" class="btn btn-danger test-button">Reject</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-6 mx-auto gap-5">
-                    <div class="card test-card" style="min-width: 18rem;">
-                        <img src="../assets/conference banner1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Author's name: Mohannad</p>
-                            <p class="card-text">Average score: 5</p>
-                        </div>
-                        <div class="d-flex mx-auto gap-2">
-                            <button type="button" class="btn btn-success test-button">Accept</button>
-                            <button type="button" class="btn btn-danger test-button">Reject</button>
-                        </div>
-                    </div>
-                </div>
+            <div id="sub" class="row">
+
             </div>
         </div>
+
+
 
     </div>
 
@@ -259,10 +170,10 @@
     <div class="container col-lg-12">
         <footer class="py-3 my-4">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li><a href="#" class="nav-link px-4 text-white footer-nav-link">Home</a></li>
-                <li><a href="#" class="nav-link px-4 text-white footer-nav-link">About</a></li>
-                <li><a href="#" class="nav-link px-4 text-white footer-nav-link">Contact</a></li>
-                <li><a href="#" class="nav-link px-4 text-white footer-nav-link">FAQs</a></li>
+                <li><a href="../Homepage/user-homepage.html" class="nav-link px-4 text-white footer-nav-link">Home</a></li>
+                <li><a href="../about-us/about-us.html" class="nav-link px-4 text-white footer-nav-link">About</a></li>
+                <li><a href="../contact/contact.html" class="nav-link px-4 text-white footer-nav-link">Contact</a></li>
+                <li><a href="../faqs/faqs-user.html" class="nav-link px-4 text-white footer-nav-link">FAQs</a></li>
             </ul>
             <p class="text-center text-white">&copy; 2024 Evenfy</p>
         </footer>
@@ -271,6 +182,8 @@
 <!--footer------------------------------------------------------------------>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz " crossorigin="anonymous "></script>
+<script src="../log-out-btn/log_out.js"></script>
+<script src="./supervisor.js"></script>
 </body>
 
 </html>
