@@ -39,7 +39,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><button id="logoutButton" class="dropdown-item" >Log out</button></li>
+                            <li><button id="logoutButton" class="dropdown-item">Log out</button></li>
                         </ul>
                     </div>
                 </div>
@@ -50,11 +50,20 @@
 <!--header------------------------------------------------------------------>
 <div class="main-create-event-advanced">
     <div class="create-event-advanced-title-div">
-        <h2 class="create-event-advanced-title-h2">Name</h2>
+        <div class="create-event-advanced-title-div">
+            <a href=""><img class="create-event-advanced-back-button" src="../assets/icons8-back-50.png" alt=""></a>
+            <h2 class="create-event-advanced-title-h2">Name</h2>
+        </div>
+
     </div>
 
 
     <div class="col-md-6 col-lg-6 main-input-group-div mx-auto">
+
+        <div class="clearfix mb-5">
+            <button type="button" class="btn save-and-continue-btn float-end" style="margin-top: 0; padding-left: 4%; padding-right: 4%;">View Conference Details</button>
+        </div>
+
         <form class="needs-validation" novalidate>
             <h3 class="mb-3">Add Submission</h3>
             <div class="row g-3">
@@ -114,10 +123,6 @@
                 </div>
 
             </div>
-        </div>
-
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn save-and-continue-btn" type="submit">Save & Continue</button>
         </div>
 
     </div>
