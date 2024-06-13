@@ -77,18 +77,17 @@ function truncateText(text, wordLimit) {
     return text;
 }
 
-function displayConferences(conferences) {
+async function displayConferences(conferences) {
     const conferencesContainer = document.getElementById("con");
     conferencesContainer.innerHTML = ''; // Clear existing content
     
-    conferences.forEach(async conference => {
-        const type = await getroletype(conference._id)
-       //alert(type)//[object Promise]
+    for (const conference of conferences) {
+        const type = await getroletype(conference._id);
         const posterSrc = conference.poster && conference.poster.trim() !== "" ? conference.poster : '../assets/medical.jpg';
         const truncatedDescription = truncateText(conference.description, 20);
         const conferenceHTML = `<div class="col-md-12 col-lg-6 mx-auto gap-5 popular-conference-div">
                     <div class="card test-card" style="min-width: 18rem;">
-                        <a href="" data-conference-id="${conference._id}">
+                        <a href="" data-conference-id="${conference._id}" data-roletype="${type}">
                             <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
                             <div class="card-body card-body-test">
                                 <h3 class="card-body-test">${conference.title}</h3>
@@ -100,17 +99,32 @@ function displayConferences(conferences) {
                 </div>`;
         
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
-    });
+    }
 
-    // Add event listener to save conference ID on click
+    // Add event listener to save conference ID and type on click
     const conferenceLinks = document.querySelectorAll('.test-card a');
     conferenceLinks.forEach(link => {
         link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior if needed
             const conferenceId = this.getAttribute('data-conference-id');
+            const roletype = this.getAttribute('data-roletype');
             localStorage.setItem('conId', conferenceId);
+            //localStorage.setItem('roleType', roletype);
+            //alert(`Conference ID: ${conferenceId}, Role Type: ${roletype}`);
+            // Optionally navigate to the new page after storing data
+            if(roletype=="Supervisor"){
+            window.location.href = "../supervisor/supervisor.html";
+            }else if(roletype=="Reviewer"){
+                window.location.href = "../Reviewer/reviewer.html";
+                }else if(roletype=="manager"){
+                    window.location.href = "../manager/manager.html";
+                    }else if(roletype=="Author"){
+                        window.location.href = "../author/author.html";
+                        }
         });
     });
 }
+
 
 
 
