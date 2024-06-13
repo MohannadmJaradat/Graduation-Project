@@ -13,7 +13,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const roleInputs = document.getElementsByName('inlineRadioOptions');
         const addButton = document.querySelector('.btn-success');
         const deleteButton = document.querySelector('.btn-danger');
-    
+        const conferencedetails = document.getElementById('cond');
+        conferencedetails.addEventListener('click', async () => {
+            window.location.href ="../yaser/user.html"
+        });
 
         addButton.addEventListener('click', async () => {
             const conferenceTitle = titleInput.value;
