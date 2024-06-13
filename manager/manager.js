@@ -246,4 +246,98 @@ document.addEventListener('DOMContentLoaded', (event) => {
             window.location.href = "../manager/manager.html";
         }
     }
+    async function displayMembers(users) {
+        const submissionsContainer = document.getElementById("conmember");
+        submissionsContainer.innerHTML = ''; // Clear existing content
     
+        users.forEach((user, index) => {
+            let conferenceHTML;
+            if (user.role == "manager") {
+                conferenceHTML = `
+                    <tr>
+                        <th scope="row">${index + 1}</th>
+                        <td>${user.user.email}</td>
+                        <td>${user.role}</td>
+                        <td>
+                            <div class="mx-auto col-6 d-grid">
+                                <button type="button" class="btn btn-danger" disabled>Remove member</button>
+                            </div>
+                        </td>
+                    </tr>`;
+            } else {
+                conferenceHTML = `
+                    <tr>
+                        <th scope="row">${index + 1}</th>
+                        <td>${user.user.email}</td>
+                        <td>${user.role}</td>
+                        <td>
+                            <div class="mx-auto col-6 d-grid">
+                                <button type="button" class="btn btn-danger remove-button" data-conference-member-id="${user.conferenceMember_id}">Remove member</button>
+                            </div>
+                        </td>
+                    </tr>`;
+            }
+            submissionsContainer.insertAdjacentHTML('beforeend', conferenceHTML);
+        });
+    
+        // Add event listener using event delegation
+        submissionsContainer.addEventListener('click', async (event) => {
+            if (event.target.classList.contains('remove-button')) {
+                const conferenceMemberId = event.target.dataset.conferenceMemberId;
+                try {
+                    alert(conferenceMemberId)
+                    const response = await fetch('http://localhost:3000/manager/delete-member', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        },
+                        body: JSON.stringify({ conferenceMemberId: conferenceMemberId, conferenceId: localStorage.getItem("conId") })
+                    });
+                    const result = await response.json();
+                    if (!response.ok) {
+                        throw new Error(result.message || 'Error deleting conference member');
+                    }
+                    console.log('Member deleted successfully:', result);
+                    window.location.href = "../manager/manager.html";
+                } catch (error) {
+                    console.error('Error deleting conference member:', error);
+                    alert(`Error deleting member: ${error.message}`);
+                }
+            }
+        });
+    }
+    
+    
+    
+    // Event listener for modal title click
+    const modalTitle = document.getElementById('viewmembers');
+    modalTitle.addEventListener('click', async () => {
+       // alert('Modal title clicked');
+        try {
+            const response = await fetch('http://localhost:3000/conference/get-conferenceMembers', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({ conferenceId: localStorage.getItem("conId") })
+            });
+    
+            const result = await response.json();
+            if (!response.ok) {
+                throw new Error(result.message || 'Failed to fetch conference members');
+            }
+    
+            displayMembers(result);
+        } catch (error) {
+            console.error('Error fetching conference members:', error);
+        }
+    });
+    
+    // Event listener for close button click
+    const closeButton = document.getElementById('closeButton');
+    closeButton.addEventListener('click', () => {
+       // alert('Close button clicked');
+        // Add your code to handle the click event
+    });

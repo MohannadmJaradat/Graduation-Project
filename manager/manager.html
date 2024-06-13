@@ -66,12 +66,14 @@
                 <div class="col-md-6 col-lg-6">
                     <label for="max-num-of-submissions" class="form-label">Conference Title</label>
                     <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="max-num-of-submissions" placeholder="Enter the title of the conference">
+                        <input type="text" class="form-control" id="max-num-of-submissions" placeholder="Enter the title of the conference" >
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
-                    <label for="exampleInputEmail1" class="form-label">Member email<span style="color: red;">*</span></label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the emial of the member" required>
+                    <label for="max-num-of-attendees" class="form-label">Member email<span style="color: red;">*</span></label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="max-num-of-attendees" placeholder="Enter the email of the member" required>
+                    </div>
                 </div>
                 <hr>
                 <div class="col-md-12 col-lg-12">
@@ -92,10 +94,11 @@
                 <div class="col-md-12 col-lg-6 d-grid">
                     <button type="submit" class="btn btn-danger mb-3">Delete from conference</button>
                 </div>
+            </form>
                 <!--view conference members starts here-->
-
+    
                 <div class="col-md-12 col-lg-8 d-grid mx-auto mt-4">
-                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">View Conference Members</button>
+                    <button id="viewmembers" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">View Conference Members</button>
                 </div>
 
                 <!-- Modal -->
@@ -104,59 +107,20 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Conference Members</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" id="closeButton" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <table class="table table-striped" style="text-align: center;">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
                                             <th scope="col">Role</th>
                                             <th scope="col">#</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>
-                                                <div class="mx-auto col-6 d-grid">
-                                                    <button type="button" class="btn btn-danger">Remove member</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>
-                                                <div class="mx-auto col-6 d-grid">
-                                                    <button type="button" class="btn btn-danger">Remove member</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Larry the Bird</td>
-                                            <td>Thornton</td>
-                                            <td>
-                                                <div class="mx-auto col-6 d-grid">
-                                                    <button type="button" class="btn btn-danger">Remove member</button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Mohannad Jaradat</td>
-                                            <td>Manager</td>
-                                            <td>
-                                                <div class="mx-auto col-6 d-grid">
-                                                    <button type="button" class="btn btn-danger">Remove member</button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                    <tbody id="conmember">
+
                                     </tbody>
                                 </table>
                             </div>
@@ -167,7 +131,6 @@
 
                 <!--view conference members ends here-->
             </div>
-        </form>
         <hr>
         <h3>Submissions</h3>
 
