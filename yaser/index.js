@@ -5,11 +5,92 @@ document.addEventListener('DOMContentLoaded', (event) => {
         window.location.href = '../Login/login.html'; 
     }
 
+
     fetchConferences();
 
-    // Add event listeners for conference categories (if any)
+    const joinButton = document.getElementById('join');
+    const joinAsAuthorButton = document.getElementById('joinasauthor');
+joinButton.addEventListener('click', async () => {
+    const Email = await getuserdetails();
+
+    try {
+        const response = await fetch('http://localhost:3000/manager/add-member', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify({
+                conferenceId: localStorage.getItem("conId"),
+                title: "test",
+                email: Email,
+                role: "user"
+            })
+        });
     
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+    
+        alert('you have been added succesfully');
+        window.location.href = "./user.html"; // Redirect to another page after successful operation
+    } catch (error) {
+        console.error('Error adding member:', error);
+        alert('Failed to add member. Check console for details.');
+    }
 });
+joinAsAuthorButton.addEventListener('click', async () => {
+    const Email = await getuserdetails();
+
+    try {
+        const response = await fetch('http://localhost:3000/manager/add-member', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify({
+                conferenceId: localStorage.getItem("conId"),
+                title: "test",
+                email: Email,
+                role: "Author"
+            })
+        });
+    
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+    
+        alert('you have been added succesfully');
+        window.location.href = "../author/author.html"; // Redirect to another page after successful operation
+    } catch (error) {
+        console.error('Error adding member:', error);
+        alert('Failed to add member. Check console for details.');
+    }
+});
+});
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+async function getuserdetails() {
+    try {
+        const response = await fetch('http://localhost:3000/user/get-user', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+  
+        if (!response.ok) {
+            throw new Error('Failed to fetch user data');
+        }
+  
+        const userData = await response.json();
+        return userData.email;
+    } catch (error) {
+        console.error('Error loading data:', error);
+    }
+    
+}
 async function getuser(conference) {
     try {
         const response = await fetch('http://localhost:3000/user/getuserById', {
