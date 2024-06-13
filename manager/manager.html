@@ -57,6 +57,9 @@
 
 
     <div class="col-md-6 col-lg-6 main-input-group-div mx-auto">
+        <div class="clearfix mb-5">
+            <button type="button" class="btn save-and-continue-btn float-end" style="margin-top: 0; padding-left: 4%; padding-right: 4%;">View Conference Details</button>
+        </div>
         <form class="needs-validation" novalidate>
             <h3 class="mb-3">Member information</h3>
             <div class="row g-3">
@@ -91,6 +94,100 @@
                 <div class="col-md-12 col-lg-6 d-grid">
                     <button type="button" class="btn btn-danger">Delete from conference</button>
                 </div>
+                <script>
+                    function toggleAddButton() {
+                        const addButton = document.getElementById('addButton');
+                        const subReviewerRadio = document.getElementById('inlineRadio2');
+                        const reviewerRadio = document.getElementById('inlineRadio1');
+
+                        if (subReviewerRadio.checked) {
+                            addButton.setAttribute('disabled', 'disabled');
+                        } else if (reviewerRadio.checked) {
+                            addButton.removeAttribute('disabled');
+                        }
+                    }
+
+                    // Initial call to set the correct state on page load
+                    window.onload = function() {
+                        toggleAddButton();
+
+                        // Ensure the change event is handled correctly on page load
+                        const radios = document.getElementsByName('inlineRadioOptions');
+                        radios.forEach(radio => radio.addEventListener('change', toggleAddButton));
+                    };
+                </script>
+                <!--view conference members starts here-->
+
+                <div class="col-md-12 col-lg-8 d-grid mx-auto mt-4">
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">View Conference Members</button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Conference Members</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table table-striped" style="text-align: center;">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Role</th>
+                                            <th scope="col">#</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>
+                                                <div class="mx-auto col-6 d-grid">
+                                                    <button type="button" class="btn btn-danger">Remove member</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td>
+                                                <div class="mx-auto col-6 d-grid">
+                                                    <button type="button" class="btn btn-danger">Remove member</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry the Bird</td>
+                                            <td>Thornton</td>
+                                            <td>
+                                                <div class="mx-auto col-6 d-grid">
+                                                    <button type="button" class="btn btn-danger">Remove member</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td>Mohannad Jaradat</td>
+                                            <td>Manager</td>
+                                            <td>
+                                                <div class="mx-auto col-6 d-grid">
+                                                    <button type="button" class="btn btn-danger">Remove member</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
         <hr>
@@ -100,10 +197,6 @@
             <div id="sub" class="row">
                 
             </div>
-        </div>
-
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn save-and-continue-btn" type="submit">Save & Continue</button>
         </div>
 
     </div>
