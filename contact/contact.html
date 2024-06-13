@@ -23,8 +23,8 @@
                 <ul class="header-container container container-sm container-md nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="../Homepage/user-homepage.html" class="nav-link px-4 text-white header-nav-link">Home</a></li>
                     <li><a href="#" class="nav-link px-4 text-white header-nav-link">About</a></li>
-                    <li><a href="../contact/contact.html" class="nav-link px-4 text-white header-nav-link"><span class="faqs">Contact</span></a></li>
-                    <li><a href="../faqs/faqs-user.html" class="nav-link px-4 text-white header-nav-link">FAQs</a></li>
+                    <li><a href="#" class="nav-link px-4 text-white header-nav-link"><span class="faqs">Contact</span></a></li>
+                    <li><a href="#" class="nav-link px-4 text-white header-nav-link">FAQs</a></li>
                 </ul>
 
                 <div class="text-center text-md-end header-media-1" style="margin-right: 3%;">
@@ -37,7 +37,7 @@
                             </a>
                             <ul class="dropdown-menu text-small">
                                 <li><a class="dropdown-item" href="../yaser/profileInfo.html">Profile</a></li>
-                                <li><a class="dropdown-item" href="../my-conferences/my-conferences.html">My Conferences</a></li>
+                                <li><a class="dropdown-item" href="#">My Conferences</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -53,14 +53,25 @@
 
     <!-- Main Content -->
     <div class="main-create-event-edit mb-5 flex-grow-1">
-        <div class="col-sm-8 col-md-8 col-lg-6 col-xl-8 main-input-group-div mx-auto">
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Contact Us</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Please write your message here to contact us..."></textarea>
-            </div>
-            <div class="d-grid gap-2 col-6 mx-auto">
-                <button class="btn save-and-continue-btn" type="submit">Submit</button>
-            </div>
+        <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 main-input-group-div mx-auto">
+            <form>
+                <div class="mb-3 col-lg-6 mx-auto">
+                    <label for="exampleInputEmail1" class="form-label">Email address<span style="color: red;">*</span></label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3 col-lg-6 mx-auto">
+                    <label for="exampleInputPassword1" class="form-label">Name<span style="color: red;">*</span></label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" required>
+                </div>
+                <div class="mb-3 col-lg-6 mx-auto">
+                    <label for="exampleFormControlTextarea1" class="form-label">Contact Us<span style="color: red;">*</span></label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Please write your message here to contact us..." required></textarea>
+                </div>
+                <div class="d-grid gap-2 col-3 mx-auto">
+                    <button class="btn save-and-continue-btn" type="submit">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
     <!-- Main Content end -->
@@ -72,8 +83,8 @@
                 <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                     <li><a href="../Homepage/user-homepage.html" class="nav-link px-4 text-white footer-nav-link">Home</a></li>
                     <li><a href="#" class="nav-link px-4 text-white footer-nav-link">About</a></li>
-                    <li><a href="../contact/contact.html" class="nav-link px-4 text-white footer-nav-link"><span class="faqs">Contact</span></a></li>
-                    <li><a href="../faqs/faqs-user.html" class="nav-link px-4 text-white footer-nav-link">FAQs</a></li>
+                    <li><a href="#" class="nav-link px-4 text-white footer-nav-link"><span class="faqs">Contact</span></a></li>
+                    <li><a href="#" class="nav-link px-4 text-white footer-nav-link">FAQs</a></li>
                 </ul>
                 <p class="text-center text-white">&copy; 2024 Evenfy</p>
             </footer>
