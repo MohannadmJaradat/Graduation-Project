@@ -74,7 +74,7 @@ function displayConferences(conferences) {
         const truncatedDescription = truncateText(conference.description, 20); // Limit to 20 words
         const conferenceHTML = `
         <div class="col-md-6">
-            <a href="../yaser/index.html" class="conference-link" data-conference-id="${conference._id}">
+            <a class="conference-link" data-conference-id="${conference._id}">
                 <div class="card mb-3 card-div" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-xl-5 col-lg-12 col-md-12">
@@ -98,9 +98,43 @@ function displayConferences(conferences) {
     // Add event listener to save conference ID on click
     const conferenceLinks = document.querySelectorAll('.conference-link');
     conferenceLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
+        link.addEventListener('click', async function(event) {
             const conferenceId = this.getAttribute('data-conference-id');
             localStorage.setItem('conId', conferenceId);
+            try {
+                const response = await fetch('http://localhost:3000/conference/get-conferemember', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify({ conferenceid: localStorage.getItem("conId") })
+                });
+        
+                const user = await response.json();
+                
+                //alert(user.roleType)
+                if (!response.ok) {
+                    throw new Error(result.message || 'Failed to fetch conference members');
+                }
+                const roletype = user.roleType;
+                if(roletype=="Supervisor"){
+                    window.location.href = "../supervisor/supervisor.html";
+                    }else if(roletype=="Reviewer"){
+                        window.location.href = "../Reviewer/reviewer.html";
+                        }else if(roletype=="manager"){
+                            window.location.href = "../manager/manager.html";
+                            }else if(roletype=="Author"){
+                                window.location.href = "../author/author.html";
+                                }else{
+                                    window.location.href = "../yaser/index.html";
+                                }
+        
+            
+            } catch (error) {
+                console.error('Error fetching conference members:', error);
+            }
+
         });
     });
 }
