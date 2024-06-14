@@ -35,14 +35,14 @@ async function loadData(token) {
       let endDate = window.localStorage.getItem('create-end-date') || 'End Date';
       let desc = window.localStorage.getItem('create-description') || 'Conference Description';
       let host = window.localStorage.getItem('create-host') || 'Host Name';
-      let poster = window.localStorage.getItem('poster') || '../assets/conference banner5.jpg';
+      //let poster = window.localStorage.getItem('poster') || '../assets/conference banner5.jpg';
 
       document.querySelector('.create-event-advanced-title-h2').textContent = title;
       document.querySelector('.create-event-advanced-location-h4').textContent = location;
       document.querySelector('.create-event-advanced-time-h4').textContent = `${startDate} - ${endDate}`;
 
-      let bannerImages = document.querySelectorAll('.main-input-group-div img');
-      bannerImages.forEach(img => img.src = poster);
+    //   let bannerImages = document.querySelectorAll('.main-input-group-div img');
+    //   bannerImages.forEach(img => img.src = poster);
 
       document.querySelector('.main-input-group-div h1').textContent = title;
       document.querySelector('.main-input-group-div p.date').textContent = `${startDate} - ${endDate}`;
