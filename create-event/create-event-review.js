@@ -1,56 +1,30 @@
-document.addEventListener('DOMContentLoaded', async () => {
-  try {
-      const token = localStorage.getItem('token');
+window.addEventListener("load",loadData)
 
-      if (!token) {
-          window.location.href = '../Login/login.html'; 
-          return; // Exit if there's no token
-      }
+function loadData(){
+  let title =  window.localStorage.getItem('create-title');
+  let shortName = window.localStorage.getItem('create-short');
+  let startDate = window.localStorage.getItem('create-start-date');
+  let endDate = window.localStorage.getItem('create-end-date');
+  let country =  window.localStorage.getItem('create-location');
+  let desc = window.localStorage.getItem('create-description');
+  let category = window.localStorage.getItem('create-category');
+  let maxNum = window.localStorage.getItem('max-num');
+  let poster = window.localStorage.setItem('poster');
+  let enableNames = window.localStorage.setItem('enable-names');
+  let enablesAbstracts = window.localStorage.setItem('enable-abstracts');
+  console.log(title);
+  console.log(shortName);
+  console.log(startDate);
+  console.log(endDate);
+  console.log(country);
+  console.log(desc);
+  console.log(category);
+  console.log(maxNum);
+  console.log(poster);
+  console.log(enableNames);
+  console.log(enablesAbstracts);
 
-      await loadData(token); // Pass the token to loadData
-  } catch (error) {
-      console.error('Error checking token:', error);
-  }
-});
 
-async function loadData(token) {
-  try {
-      const response = await fetch('http://localhost:3000/user/get-user', {
-          method: 'GET',
-          headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`
-          }
-      });
 
-      if (!response.ok) {
-          throw new Error('Failed to fetch user data');
-      }
 
-      const userData = await response.json();
-
-      let title = window.localStorage.getItem('create-title') || 'Event Title';
-      let location = window.localStorage.getItem('create-location') || 'Location';
-      let startDate = window.localStorage.getItem('create-start-date') || 'Start Date';
-      let endDate = window.localStorage.getItem('create-end-date') || 'End Date';
-      let desc = window.localStorage.getItem('create-description') || 'Conference Description';
-      let host = window.localStorage.getItem('create-host') || 'Host Name';
-      let poster = window.localStorage.getItem('poster') || '../assets/conference banner5.jpg';
-
-      document.querySelector('.create-event-advanced-title-h2').textContent = title;
-      document.querySelector('.create-event-advanced-location-h4').textContent = location;
-      document.querySelector('.create-event-advanced-time-h4').textContent = `${startDate} - ${endDate}`;
-
-      let bannerImages = document.querySelectorAll('.main-input-group-div img');
-      bannerImages.forEach(img => img.src = poster);
-
-      document.querySelector('.main-input-group-div h1').textContent = title;
-      document.querySelector('.main-input-group-div p.date').textContent = `${startDate} - ${endDate}`;
-      document.querySelector('.main-input-group-div p.location').textContent = location;
-      document.querySelector('.main-input-group-div p.host').textContent = userData.fullName;
-      document.querySelector('.main-input-group-div p.description').textContent = desc;
-
-  } catch (error) {
-      console.error('Error loading data:', error);
-  }
 }
