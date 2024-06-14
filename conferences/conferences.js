@@ -126,7 +126,9 @@ function displayConferences(conferences) {
                             window.location.href = "../manager/manager.html";
                             }else if(roletype=="Author"){
                                 window.location.href = "../author/author.html";
-                                }else{
+                                }else if(roletype=="user"){
+                                    window.location.href = "../yaser/user.html";
+                                    }else{
                                     window.location.href = "../yaser/index.html";
                                 }
         
