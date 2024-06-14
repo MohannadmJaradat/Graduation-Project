@@ -73,18 +73,17 @@ async function fetchsubmissions() {
     submissions.forEach(async submission => {
         const conferenceHTML = `
         <div class="card test-card popular-conference-div" style="min-width: 18rem;" data-paper-url="http://localhost:3000/${submission.paper}" data-submission-id="${submission._id}">
-            <a onclick="return false;">
-                <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Conference: ${conference.title}</p>
-                    <p class="card-text">Field: ${conference.confield}</p>
-                </div>
-            </a>
-            <div class="d-flex mx-auto gap-2">
-                <form> <button type="button" class="btn btn-warning test-button">Edit</button></form>
-                <form><button type="button" class="btn btn-danger test-button delete-button">Delete</button></form>
-            </div>
-        </div>    
+                    <a onclick="return false;">
+                        <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Conference: ${conference.title}</p>
+                            <p class="card-text">Field: ${conference.confield}</p>
+                        </div>
+                    </a>
+                    <div class=" mx-auto d-flex  col-12 mx-auto">
+                        <button type="button" class="btn btn-danger col-11 mx-auto mb-4 mt-2 delete-button">Remove Submission</button>
+                    </div>
+                </div>    
         `;
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
     });
@@ -178,17 +177,14 @@ async function displayabstract(submissions) {
     submissions.forEach(async submission => {
         const conferenceHTML = `
         <div class="card test-card popular-conference-div" style="min-width: 18rem;" data-abstract-url="http://localhost:3000/${submission.abstract}">
-            <a href="#" onclick="return false;">
-                <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Conference: ${conference.title}</p>
-                    <p class="card-text">Field: ${conference.confield}</p>
-                </div>
-            </a>
-            <div class="d-flex mx-auto gap-2">
-                <form> <button type="button" class="btn btn-warning test-button">Edit</button></form>
-            </div>
-        </div>    
+                    <a href="#" onclick="return false;">
+                        <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Conference: ${conference.title}</p>
+                            <p class="card-text">Field: ${conference.confield}</p>
+                        </div>
+                    </a>
+                </div>    
         `;
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
     });
