@@ -48,11 +48,12 @@ async function fetchsubmissions() {
     try {
 
         const response = await fetch('http://localhost:3000/author/get-submission', {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
-            }
+            },
+            body: JSON.stringify({conId: localStorage.getItem("conId") })
         });
         
         const submissions = await response.json();
