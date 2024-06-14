@@ -171,28 +171,3 @@ async function getconferences() {
         console.error('Error fetching conferences:', error);
     }
 }
-
-async function loadData(token) {
-    try {
-        const response = await fetch('http://localhost:3000/user/get-user', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }
-        });
-  
-        if (!response.ok) {
-            throw new Error('Failed to fetch user data');
-        }
-  
-        const userData = await response.json();
-        
-        const dateElement = document.getElementById('name');
-if (dateElement) {
-    dateElement.textContent = userData.fullName;
-}
-    }catch{
-
-    }
-}
