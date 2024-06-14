@@ -74,7 +74,7 @@ function displayConferences(conferences) {
         const truncatedDescription = truncateText(conference.description, 20); // Limit to 20 words
         const conferenceHTML = `
         <div class="col-md-6">
-            <a class="conference-link" data-conference-id="${conference._id}">
+            <a class="conference-link" data-conference-id="${conference._id}" data-is-abstract-enabled="${conference.isAbstractEnabled}">
                 <div class="card mb-3 card-div" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-xl-5 col-lg-12 col-md-12">
@@ -100,7 +100,10 @@ function displayConferences(conferences) {
     conferenceLinks.forEach(link => {
         link.addEventListener('click', async function(event) {
             const conferenceId = this.getAttribute('data-conference-id');
+            const abstract = this.getAttribute('data-is-abstract-enabled');
+           // alert(abstract)
             localStorage.setItem('conId', conferenceId);
+            localStorage.setItem('abstract', abstract);
             try {
                 const response = await fetch('http://localhost:3000/conference/get-conferemember', {
                     method: 'POST',
@@ -123,7 +126,8 @@ function displayConferences(conferences) {
                         }else if(roletype=="manager"){
                             window.location.href = "../manager/manager.html";
                             }else if(roletype=="Author"){
-                                window.location.href = "../author/author.html";
+                                if(abstract){window.location.href = "../author/author.html";}
+                                else if(!abstract){window.location.href = "../author/authorwithout.html";}
                                 }else if(roletype=="user"){
                                     window.location.href = "../yaser/user.html";
                                     }else{

@@ -87,7 +87,7 @@ async function displayConferences(conferences) {
         const truncatedDescription = truncateText(conference.description, 20);
         const conferenceHTML = `<div class="col-md-12 col-lg-6 mx-auto gap-5 popular-conference-div">
                     <div class="card test-card" style="min-width: 18rem;">
-                        <a href="" data-conference-id="${conference._id}" data-roletype="${type}">
+                        <a href="" data-conference-id="${conference._id}" data-roletype="${type}" data-is-abstract-enabled="${conference.isAbstractEnabled}">
                             <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
                             <div class="card-body card-body-test">
                                 <h3 class="card-body-test">${conference.title}</h3>
@@ -107,22 +107,25 @@ async function displayConferences(conferences) {
         link.addEventListener('click', function(event) {
             event.preventDefault(); // Prevent default link behavior if needed
             const conferenceId = this.getAttribute('data-conference-id');
-            const roletype = this.getAttribute('data-roletype');
+            const abstract = this.getAttribute('data-is-abstract-enabled');
             localStorage.setItem('conId', conferenceId);
+            localStorage.setItem('abstract', abstract);
+            const roletype = this.getAttribute('data-roletype');
             //localStorage.setItem('roleType', roletype);
             //alert(`Conference ID: ${conferenceId}, Role Type: ${roletype}`);
             // Optionally navigate to the new page after storing data
             if(roletype=="Supervisor"){
-            window.location.href = "../supervisor/supervisor.html";
-            }else if(roletype=="Reviewer"){
-                window.location.href = "../Reviewer/reviewer.html";
-                }else if(roletype=="manager"){
-                    window.location.href = "../manager/manager.html";
-                    }else if(roletype=="Author"){
-                        window.location.href = "../author/author.html";
-                        }else if(roletype=="user"){
-                            window.location.href = "../yaser/user.html";
-                        }
+                window.location.href = "../supervisor/supervisor.html";
+                }else if(roletype=="Reviewer"){
+                    window.location.href = "../Reviewer/reviewer.html";
+                    }else if(roletype=="manager"){
+                        window.location.href = "../manager/manager.html";
+                        }else if(roletype=="Author"){
+                            if(abstract){window.location.href = "../author/author.html";}
+                            else if(!abstract){window.location.href = "../author/authorwithout.html";}
+                            }else if(roletype=="user"){
+                                window.location.href = "../yaser/user.html";
+                                }
         });
     });
 }
