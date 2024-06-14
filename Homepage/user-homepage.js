@@ -124,6 +124,7 @@ function displayConferences(conferences) {
         link.addEventListener('click', async function(event) {
             const conferenceId = this.getAttribute('data-conference-id');
             const abstract = this.getAttribute('data-is-abstract-enabled');
+            alert(conferenceId)
             localStorage.setItem('conId', conferenceId);
             localStorage.setItem('abstract', abstract);
             try {
@@ -141,6 +142,7 @@ function displayConferences(conferences) {
                     throw new Error(result.message || 'Failed to fetch conference members');
                 }
                 const roletype = user.roleType;
+                alert(roletype)
                 if(roletype=="Supervisor"){
                     window.location.href = "../supervisor/supervisor.html";
                     }else if(roletype=="Reviewer"){

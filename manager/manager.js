@@ -155,7 +155,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 throw new Error('Failed to fetch conferences');
             }
             const submissions = await response.json();
-            
             displayConferences(submissions);
         } catch (error) {
             console.error('Error fetching conferences:', error);
@@ -168,6 +167,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
         for (const submission of submissions) {
             const user = await getuser(submission.authorId);
+            alert(user._id)
             let conferenceHTML;
     
             if (submission.isAccepted) {
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     <div class="card test-card" style="min-width: 18rem;">
                         <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <p class="card-text">Author's name: ${user.fullName}</p>
+                            <p class="card-text">Author's name: ${user.fullName} </p>
                             <p class="card-text">Average score: ${submission.avgScore}</p>
                             <p class="card-text">The submission is: still need evaluate</p>
                         </div>
