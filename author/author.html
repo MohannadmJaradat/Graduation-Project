@@ -58,7 +58,7 @@
     <div class="create-event-advanced-title-div">
         <div class="create-event-advanced-title-div">
             <a href=""><img class="create-event-advanced-back-button" src="../assets/icons8-back-50.png" alt=""></a>
-            <h2 class="create-event-advanced-title-h2">Name</h2>
+            <h2 id="name" class="create-event-advanced-title-h2">Name</h2>
         </div>
 
     </div>
@@ -67,48 +67,32 @@
     <div class="col-md-8 col-lg-6 main-input-group-div mx-auto">
 
         <div class="clearfix mb-5">
-            <button type="button" class="btn save-and-continue-btn float-end" style="margin-top: 0; padding-left: 4%; padding-right: 4%;">View Conference Details</button>
+            <button id="cond" type="button" class="btn save-and-continue-btn float-end" style="margin-top: 0; padding-left: 4%; padding-right: 4%;">View Conference Details</button>
         </div>
 
-        <form>
+        <form id="submissionForm">
             <h3 class="mb-3">Add Submission</h3>
             <div class="row g-3">
                 <div class="col-md-6 col-lg-6">
-                    <label for="formFile" class="form-label">Add <strong>paper</strong></label>
-                    <input class="form-control" type="file" id="formFile">
+                    <label for="formpaper" class="form-label">Add <strong>paper</strong></label>
+                    <input class="form-control" type="file" id="formpaper">
                 </div>
                 <div class="col-md-6 col-lg-6">
-                    <label for="formFile" class="form-label">Add <strong>abstract</strong></label>
-                    <input class="form-control" type="file" id="formFile">
+                    <label for="formabstract" class="form-label">Add <strong>abstract</strong></label>
+                    <input class="form-control" type="file" id="formabstract">
                 </div>
-                <button type="button" class="btn save-and-continue-btn mx-0 save-and-continue-btn col-lg-4" style="margin-top: 5%; ">Submit Files</button>
+                <button type="button" id="submitFileButton" class="btn save-and-continue-btn mx-0 save-and-continue-btn col-lg-4" style="margin-top: 5%;">Submit Files</button>
                 <hr>
-
             </div>
-
         </form>
+        
         <hr>
         <h3>Submmitted paper: </h3>
 
         <div class="container mt-3 mx-auto">
             <div class="row">
-                <div class="col-md-12 col-lg-8 mx-auto gap-5 d-grid">
+                <div class="col-md-12 col-lg-8 mx-auto gap-5 d-grid" id="sub">
 
-                    <div class="card test-card popular-conference-div" style="min-width: 18rem;">
-                        <a href="">
-                            <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
-
-                            <div class="card-body">
-                                <p class="card-text">Conference: Yaser</p>
-                                <p class="card-text">Field: Msameh</p>
-                            </div>
-                        </a>
-                        <div class="d-flex mx-auto gap-2">
-                            <form> <button type="button" class="btn btn-warning test-button">Edit</button></form>
-
-                            <form><button type="button" class="btn btn-danger test-button">Delete</button></form>
-                        </div>
-                    </div>
 
                 </div>
 
@@ -119,22 +103,8 @@
 
         <div class="container mt-3 mx-auto">
             <div class="row">
-                <div class="col-md-12 col-lg-8 mx-auto gap-5 d-grid">
+                <div class="col-md-12 col-lg-8 mx-auto gap-5 d-grid" id="abs">
 
-                    <div class="card test-card popular-conference-div" style="min-width: 18rem;">
-                        <a href="">
-                            <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p class="card-text">Conference: Yaser</p>
-                                <p class="card-text">Field: Msameh</p>
-                            </div>
-                        </a>
-                        <div class="d-flex mx-auto gap-2">
-                            <form> <button type="button" class="btn btn-warning test-button">Edit</button></form>
-
-                        </div>
-
-                    </div>
 
                 </div>
 
@@ -162,6 +132,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz " crossorigin="anonymous "></script>
 <script src="../log-out-btn/log_out.js"></script>
+<script src="./author.js"></script>
+<script src="../manager/manager.js"></script>
 </body>
 
 </html>
