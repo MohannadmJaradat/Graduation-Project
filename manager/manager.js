@@ -29,7 +29,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     memberRole = input.nextElementSibling.textContent.trim();
                 }
             });
-            alert(memberRole)
+            if(!memberRole){
+                alert("you have to choose the rule")
+                return;
+            }
             try {
                 const response = await fetch('http://localhost:3000/manager/add-member', {
                     method: 'POST',
