@@ -51,11 +51,6 @@ function goToReview(){
     }
     window.localStorage.setItem('max-num',maxNum)
     if(enableNames){
-        window.localStorage.setItem('enable-names',true)
-    }else{
-        window.localStorage.setItem('enable-names',false)
-    }
-    if(enableNames){
         window.localStorage.setItem('enable-abstracts',true)
     }else{
         window.localStorage.setItem('enable-abstracts',false)
