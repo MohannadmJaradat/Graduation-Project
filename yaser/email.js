@@ -73,8 +73,11 @@ document.getElementById('email-btn').addEventListener('click', async (event) => 
             alert(result.message);
             localStorage.removeItem('token');
              window.location.href = '../Login/login.html';
+        }else if(!response.ok){
+            alert('Error: User already exists');
         }
-        alert('Error: User already exists');
+       
     } catch (error) {
+        
     }
 });
