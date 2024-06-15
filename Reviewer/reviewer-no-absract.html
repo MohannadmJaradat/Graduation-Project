@@ -71,12 +71,19 @@
             <button type="button" class="btn save-and-continue-btn float-end" style="margin-top: 0; padding-left: 4%; padding-right: 4%;">View Conference Details</button>
         </div>
         <form class=" mb-5">
-            <h3 class="mb-3">Invite a sub-reviewer</h3>
             <div class="row g-3 d-flex mx-auto">
-                <label for="max-num-of-submissions" class="form-label">Email<span style="color: red;">*</span></label>
-
+                <label for="sub-reviewer-email" class="form-label">Email<span style="color: red;">*</span></label>
                 <div class="col-md-6 col-lg-12 input-group mt-0">
-                    <input type="text" class="form-control" placeholder="Enter the Email of the sub-reviewer" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                    <input type="text" id="sub-reviewer-email" class="form-control" placeholder="Enter the Email of the sub-reviewer" aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                </div>
+            
+                <!-- New Invite Message field -->
+                <label for="invite-message" class="form-label mt-3">Invite Message:</label>
+                <div class="col-md-6 col-lg-12 input-group mt-0">
+                    <input type="text" id="invite-message" class="form-control" placeholder="Enter invite message" aria-label="Invite message" aria-describedby="invite-message-addon">
+                </div>
+            
+                <div class="col-md-6 col-lg-12 input-group mt-3">
                     <button class="btn btn-warning" type="submit" id="button-addon2">Invite</button>
                 </div>
             </div>

@@ -7,6 +7,54 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
     loadData(token)
     fetchsubmissions();
+    document.getElementById('button-addon2').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+    
+        // Get the values from both input fields
+        const subreviewerEmail = document.getElementById('sub-reviewer-email').value;
+        const textmessage = document.getElementById('invite-message').value;
+    
+        // Validate the email field
+        if (!subreviewerEmail) {
+            alert('Please enter an email.');
+            return;
+        }
+    
+        // Regex pattern for validating email addresses
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+        if (!emailPattern.test(subreviewerEmail)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+    
+        // Display the collected data in the console (or process as needed)
+        console.log('Email:', subreviewerEmail);
+        console.log('Invite Message:', textmessage);
+    
+        // Example: Sending data to the server (replace with your actual logic)
+        fetch('http://localhost:3000/reviewer/invite-subreviewer', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify({subreviewerEmail,textmessage,conferenceId:localStorage.getItem('conId')})
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Invitation sent successfully.');
+                window.location.href="./reviewer.html"
+            } else {
+                alert('Failed to send invitation.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while sending the invitation.');
+        });
+    });
+    
 });
 
     
