@@ -72,20 +72,28 @@ function displayConferences(conferences) {
     conferencesContainer.innerHTML = ''; // Clear existing content
     conferences.forEach(conference => {
         const truncatedDescription = truncateText(conference.description, 20); // Limit to 20 words
+        const datestart = conference.startDate;
+        const dateend = conference.endDate 
+        const starttdate = new Date(datestart);
+        const endddate = new Date(dateend);
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        const startdate = starttdate.toLocaleDateString(undefined, options);
+        const enddate = endddate.toLocaleDateString(undefined, options);
+        
         const conferenceHTML = `
         <div class="col-md-6">
             <a class="conference-link" data-conference-id="${conference._id}" data-is-abstract-enabled="${conference.isAbstractEnabled}">
                 <div class="card mb-3 card-div" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-xl-5 col-lg-12 col-md-12">
-                            <img src="${conference.imageUrl}" class="img-fluid rounded-start rounded-bottom rounded-top" alt="Conference Image">
+                            <img src="${conference.imageUrl}" class="img-fluid rounded-start rounded-bottom rounded-top" alt="Conference Image" onerror="this.onerror=null;this.src='../assets/medical.jpg';">
                         </div>
                         <div class="col-xl-7 col-lg-12 col-md-12">
                             <div class="card-body">
                                 <h5 class="card-title">${conference.title}</h5>
                                 <p class="card-text">${truncatedDescription}</p>
-                                <p>${conference.date} | ${conference.location}</p>
-                                <p class="card-text"><small class="text-body-secondary">${conference.time}</small></p>
+                                <p>${conference.location}</p>
+                                <p class="card-text"><small class="text-body-secondary">${startdate} | ${enddate}</small></p>
                             </div>
                         </div>
                     </div>
