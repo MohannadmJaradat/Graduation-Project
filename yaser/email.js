@@ -71,20 +71,10 @@ document.getElementById('email-btn').addEventListener('click', async (event) => 
         if (response.ok) {
             const result = await response.json();
             alert(result.message);
-        } else {
-            let errorMessage;
-            try {
-                errorMessage = await response.json();
-            } catch (error) {
-                errorMessage = 'An error occurred while updating the email.';
-            }
-            console.error('Error updating email:', errorMessage);
-            alert(errorMessage);
+            localStorage.removeItem('token');
+             window.location.href = '../Login/login.html';
         }
-        localStorage.removeItem('token');
-        window.location.href = '../Login/login.html';
+        alert('Error: User already exists');
     } catch (error) {
-        console.error('Error updating email:', error);
-        alert('An error occurred while updating the email.');
     }
 });
