@@ -135,7 +135,6 @@ async function fetchConferences() {
         }
 
         const conference = await response.json();
-        
         displayConference(conference);
     } catch (error) {
         alert("Problem fetching conferences");
@@ -153,10 +152,10 @@ async function displayConference(conference) {
     console.log(conference.title)
 
     // Update the conference image
-    const imageElement = document.querySelector('.col-md-11 img');
-    if (imageElement) {
-        imageElement.src = conference.imageUrl;
-    }
+    // const imageElement = document.querySelector('.col-md-11 img');
+    // if (imageElement) {
+    //     imageElement.src = conference.imageUrl;
+    // }
 
     // Update the date and time
     const dateElement = document.getElementById('date');

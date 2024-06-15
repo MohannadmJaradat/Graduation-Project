@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Redirect to login page if not authenticated
         window.location.href = '../Login/login.html'; 
     }
-    //alert("one")
+    loadData(token)
     fetchsubmissions();
 });
 document.getElementById('submitFileButton').addEventListener('click', async () => {
@@ -169,5 +169,29 @@ async function getconferences() {
     } catch (error) {
         alert("Problem fetching conferences");
         console.error('Error fetching conferences:', error);
+    }
+}
+async function loadData(token) {
+    try {
+        const response = await fetch('http://localhost:3000/user/get-user', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        });
+  
+        if (!response.ok) {
+            throw new Error('Failed to fetch user data');
+        }
+  
+        const userData = await response.json();
+        
+        const dateElement = document.getElementById('name');
+if (dateElement) {
+    dateElement.textContent = userData.fullName;
+}
+    }catch{
+
     }
 }
