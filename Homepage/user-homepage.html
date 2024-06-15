@@ -45,8 +45,8 @@
                                 <!-- <li><a class="dropdown-item" href="#">Settings</a></li> -->
                                 <li><button id="profileb" class="dropdown-item" >Profile</button></li>
                                 <li><a class="dropdown-item" href="../my-conferences/my-conferences.html">My Conferences</a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Notifications <span class="badge text-bg-danger rounded-pill"> 4</span></a></li>
-                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample2" role="button" aria-controls="offcanvasExample">Invitations <span class="badge text-bg-danger rounded-pill"> 2</span></a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Notifications <span class="badge text-bg-danger rounded-pill" id="notificationsNumber"> 4</span></a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample2" role="button" aria-controls="offcanvasExample">Invitations <span class="badge text-bg-danger rounded-pill" id="invitationsNumber"> 2</span></a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -66,7 +66,7 @@
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Notifications</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
+    <div class="offcanvas-body" id="notifications">
         <div class="notification">
             Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
         </div>
@@ -85,7 +85,7 @@
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Invitations</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
+    <div class="offcanvas-body" id="invitations">
         <div class="notification">
             New invitation from Mohannad.
             <div class="d-flex col-12 mt-3">

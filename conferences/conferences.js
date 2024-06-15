@@ -86,7 +86,7 @@ function displayConferences(conferences) {
                 <div class="card mb-3 card-div" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-xl-5 col-lg-12 col-md-12">
-                            <img src="${conference.imageUrl}" class="img-fluid rounded-start rounded-bottom rounded-top" alt="Conference Image" onerror="this.onerror=null;this.src='../assets/medical.jpg';">
+                            <img src="http://localhost:3000${conference.imageUrl}" class="img-fluid rounded-start rounded-bottom rounded-top" alt="Conference Image" ">
                         </div>
                         <div class="col-xl-7 col-lg-12 col-md-12">
                             <div class="card-body">
