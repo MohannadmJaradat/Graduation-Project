@@ -125,6 +125,9 @@ async function displayConferences(conferences) {
                                 window.location.href = "../author/author-no-abstract.html";}
                             else if(abstract=="true"){
                                 window.location.href = "../author/author.html";}
+                        }else if(roletype=="user"){
+                            window.location.href = "../yaser/user.html";
+
                         }
         });
     });
