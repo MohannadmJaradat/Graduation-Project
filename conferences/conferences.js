@@ -104,6 +104,7 @@ function displayConferences(conferences) {
            // alert(abstract)
             localStorage.setItem('conId', conferenceId);
             localStorage.setItem('abstract', abstract);
+            alert(abstract)
             try {
                 const response = await fetch('http://localhost:3000/conference/get-conferemember', {
                     method: 'POST',
@@ -128,8 +129,10 @@ function displayConferences(conferences) {
                         }else if(roletype=="manager"){
                             window.location.href = "../manager/manager.html";
                             }else if(roletype=="Author"){
-                                if(abstract){window.location.href = "../author/author.html";}
-                                else if(!abstract){window.location.href = "../author/authorwithout.html";}
+                                if(abstract=="false"){
+                                    window.location.href = "../author/author-no-abstract.html";}
+                                else if(abstract=="true"){
+                                    window.location.href = "../author/author.html";}
                                 }else if(roletype=="user"){
                                     window.location.href = "../yaser/user.html";
                                     }else{

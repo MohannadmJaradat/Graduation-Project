@@ -102,6 +102,7 @@ function displayConferences(conferences) {
             const conferenceId = this.getAttribute('data-conference-id');
             const abstract = this.getAttribute('data-is-abstract-enabled');
            // alert(abstract)
+           
             localStorage.setItem('conId', conferenceId);
             localStorage.setItem('abstract', abstract);
             try {
@@ -126,8 +127,10 @@ function displayConferences(conferences) {
                         }else if(roletype=="manager"){
                             window.location.href = "../manager/manager.html";
                             }else if(roletype=="Author"){
-                                if(abstract){window.location.href = "../author/author.html";}
-                                else if(!abstract){window.location.href = "../author/authorwithout.html";}
+                                if(abstract=="false"){
+                                    window.location.href = "../author/author-no-abstract.html";}
+                                else if(abstract=="true"){
+                                    window.location.href = "../author/author.html";}
                                 }else if(roletype=="user"){
                                     window.location.href = "../yaser/user.html";
                                     }else{
