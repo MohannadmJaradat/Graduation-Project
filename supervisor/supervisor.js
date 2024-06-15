@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const titleInput = document.getElementById('max-num-of-submissions');
         const emailInput = document.getElementById('max-num-of-attendees');
         const roleInputs = document.getElementsByName('inlineRadioOptions');
-        const addButton = document.querySelector('.btn-success');
-        const deleteButton = document.querySelector('.btn-danger');
+        const addButton = document.getElementById("addButton")
+        const deleteButton = document.getElementById("deletebutton");
         const conferencedetails = document.getElementById('cond');
         conferencedetails.addEventListener('click', async () => {
             window.location.href ="../yaser/user.html"
@@ -21,15 +21,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
         addButton.addEventListener('click', async () => {
             const conferenceTitle = titleInput.value;
             const memberEmail = emailInput.value;
-            alert(memberEmail)
             let memberRole = '';
+
     
             roleInputs.forEach(input => {
                 if (input.checked) {
                     memberRole = input.nextElementSibling.textContent.trim();
                 }
             });
-            alert(memberRole)
+            if(!memberRole||!memberEmail){
+                alert("there is missing data")
+                return;
+            }
             try {
                 const response = await fetch('http://localhost:3000/manager/add-member', {
                     method: 'POST',
@@ -59,10 +62,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     body: JSON.stringify({ email: memberEmail, conferenceId: localStorage.getItem("conId") })
                 });
                 const conmem = await response.json();
+                alert(conmem._id)
                 if (!response.ok) {
                     throw new Error(conmem.message || 'Error fetching conference member');
                 }
-    
+       
                 deletemember(conmem);
             } catch (error) {
                 console.error('Error fetching conference member:', error);
@@ -72,7 +76,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
     async function deletemember(conmem){
         try {
-            alert(conmem._id)
             const response2 = await fetch('http://localhost:3000/manager/delete-member', {
                 method: 'POST',
                 headers: {

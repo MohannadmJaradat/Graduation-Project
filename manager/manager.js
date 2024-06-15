@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const titleInput = document.getElementById('max-num-of-submissions');
         const emailInput = document.getElementById('max-num-of-attendees');
         const roleInputs = document.getElementsByName('inlineRadioOptions');
-        const addButton = document.querySelector('.btn-success');
+        const addButton = document.getElementById("addmem")
         const deleteButton = document.querySelector('.btn-danger');
-        const conferencedetails = document.getElementById('cond');
+        const conferencedetails = document.getElementById('addmem');
         conferencedetails.addEventListener('click', async () => {
             window.location.href ="../yaser/user.html"
         });
@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 return;
             }
             try {
+                
                 const response = await fetch('http://localhost:3000/manager/add-member', {
                     method: 'POST',
                     headers: {
