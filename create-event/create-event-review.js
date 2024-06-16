@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const token = window.localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '../Login/login.html';
+    }
     function populateEventDetails() {
       const conferenceTitle = localStorage.getItem('conferenceTitle') || 'Event Title';
       const location = localStorage.getItem('location') || 'Location';
@@ -45,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
-    const token = localStorage.getItem('token');
     if (token) {
       loadData(token);
     } else {

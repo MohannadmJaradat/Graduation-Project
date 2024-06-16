@@ -1,6 +1,17 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    const token = window.localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '../Login/login.html';
+    }
     const saveButton = document.getElementById('save-btn');
+    const conferenceTitle = localStorage.getItem('conferenceTitle') || 'Event Title';
+      const location = localStorage.getItem('location') || 'Location';
+      const startDate = localStorage.getItem('startDate') || 'Start Date';
+      const endDate = localStorage.getItem('endDate') || 'End Date';
   
+      document.querySelector('.create-event-advanced-title-h2').textContent = conferenceTitle;
+      document.querySelector('.create-event-advanced-location-h4').textContent = location;
+      document.querySelector('.create-event-advanced-time-h4').textContent = `${startDate} - ${endDate}`;
     saveButton.addEventListener('click', async (event) => {
       event.preventDefault();
   

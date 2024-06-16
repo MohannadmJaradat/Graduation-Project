@@ -62,7 +62,13 @@ joinAsAuthorButton.addEventListener('click', async () => {
         }
     
         alert('you have been added succesfully');
-        window.location.href = "../author/author.html"; // Redirect to another page after successful operation
+        const abstract = localStorage.getItem("abstract")
+        if(abstract=="yes"){
+            window.location.href = "../author/author.html";
+        }else{
+            window.location.href = "../author/author-no-abstract.html";
+        }
+         
     } catch (error) {
         console.error('Error adding member:', error);
         alert('Failed to add member. Check console for details.');
@@ -115,7 +121,7 @@ async function getuser(conference) {
 }
 async function fetchConferences() {
     try {
-        const conId = await localStorage.getItem('conId');
+        const conId = localStorage.getItem('conId');
         if (!conId) {
             throw new Error('conId not found in localStorage');
         }
