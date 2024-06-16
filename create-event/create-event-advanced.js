@@ -1,60 +1,48 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-      const token = localStorage.getItem('token');
-
-      if (!token) {
-          window.location.href = '../Login/login.html'; 
-      }
-    } catch (error) {
-      
-    }
-      
-});
-saveBtn = document.getElementById('save-btn');
-
-saveBtn.addEventListener('click',goToReview)
-
-function goToReview(){
-    let maxNum = parseInt(document.getElementById('max-num-of-submissions').value)
-    let enableNames = document.getElementById('inlineRadio1').checked;
-    let disableNames = document.getElementById('inlineRadio2').checked;
-    let enablesAbstracts = document.getElementById('yesRadio').checked;
-    let disableAbstracts = document.getElementById('noRadio').checked;
-    let files = document.getElementById("formFile").files;
-    console.log(files[0].type)
-    console.log(maxNum)
-    if(maxNum == undefined || maxNum == "" || isNaN(maxNum)){
-        window.alert("Please Enter Maximum Number Of Submissions")
-        return;
-    }
-    if(!enableNames && !disableNames){
-        window.alert("Please Select An Option")
-        return;
-    }
-    if(!enablesAbstracts && !disableAbstracts){
-        window.alert("Please Select An Option")
-        return;
-    }
-
+document.addEventListener('DOMContentLoaded', () => {
+    const saveButton = document.getElementById('save-btn');
     
-    if(files.length<=0){
-        window.alert("Please Enter Conference Poster")
-        return;
-    }
-    if(files[0].type == "image/jpeg" || files[0].type == "image/png"){
-        window.localStorage.setItem('poster',files[0])
+    saveButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent the default form submission
 
-       
-    }else{
-        window.alert("Poster file type not allowed")
-        return;
-    }
-    window.localStorage.setItem('max-num',maxNum)
-    if(enableNames){
-        window.localStorage.setItem('enable-abstracts',true)
-    }else{
-        window.localStorage.setItem('enable-abstracts',false)
-    }
-    window.location.href = "../create-event/create-event-review.html";
+        // Retrieve form values
+        const maxNumOfSubmissions = document.getElementById('max-num-of-submissions').value;
+        const abstractOption = document.querySelector('input[name="abstractOption"]:checked');
+        const posterFile = document.getElementById('formFile').files[0];
 
-}
+        // Validate form values
+        let errorMessages = [];
+
+        if (!maxNumOfSubmissions) {
+            errorMessages.push("Maximum number of submissions is required.");
+        }
+
+        if (!abstractOption) {
+            errorMessages.push("Please select if authors have to submit abstracts.");
+        }
+
+        if (!posterFile) {
+            errorMessages.push("Please upload the poster for your conference.");
+        }
+
+        if (errorMessages.length > 0) {
+            alert("Please fix the following errors:\n" + errorMessages.join("\n"));
+        } else {
+            // Save values to local storage
+            localStorage.setItem('maxNumOfSubmissions', maxNumOfSubmissions);
+            localStorage.setItem('abstractOption', abstractOption.value);
+
+            if (posterFile) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    localStorage.setItem('posterFile', e.target.result);
+                    alert('Form data saved successfully!');
+                    alert(e.target.result)
+                }
+                reader.readAsDataURL(posterFile);
+                window.location.href="./create-event-review.html"
+            } else {
+                alert('Form data saved successfully!');
+            }
+        }
+    });
+});

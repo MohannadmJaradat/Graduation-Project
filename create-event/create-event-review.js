@@ -1,118 +1,126 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    try {
-      const token = localStorage.getItem('token');
-  
-      if (!token) {
-        window.location.href = '../Login/login.html';
-        return; // Exit if there's no token
-      }
-  
-      await loadData(token); // Pass the token to loadData
-    } catch (error) {
-      console.error('Error checking token:', error);
-    }
-  
-    document.getElementById('save').addEventListener('click', async (event) => {
-      event.preventDefault(); // Prevent the default form submission behavior
-      
-      const title = localStorage.getItem('create-title');
-      const shortName = localStorage.getItem('create-short');
-      const startDate = localStorage.getItem('create-start-date');
-      const endDate = localStorage.getItem('create-end-date');
-      const location = localStorage.getItem('create-location');
-      const description = localStorage.getItem('create-description');
-      const confield = localStorage.getItem('create-category');
-      const maxNumSub = localStorage.getItem('max-num');
-      const isAbstracted = localStorage.getItem('enable-abstracts') === 'true';
-      const token = localStorage.getItem('token');
-      
-      try {
-        const formData = new FormData();
-        formData.append('title', title);
-        formData.append('shortName', shortName);
-        formData.append('description', description);
-        formData.append('location', location);
-        formData.append('startDate', startDate);
-        formData.append('endDate', endDate);
-        formData.append('maxNumSub', maxNumSub);
-        formData.append('isAbstracted', isAbstracted);
-        formData.append('category', confield);
-        // Assuming you have a file input with id 'poster' for the conference poster
-        const posterInput = document.getElementById('poster');
-        if (posterInput && posterInput.files.length > 0) {
-          formData.append('poster', posterInput.files[0]);
-        }
-        
-        const response = await fetch('http://localhost:3000/conference/create-conference', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${token}`
-          },
-          body: formData
-        });
-  
-        if (!response.ok) {
-          throw new Error('Failed to create conference');
-        }
-  
-        const result = await response.json();
-        localStorage.setItem('conId', result.conferenceId);
-        alert(result.conferenceId)
-        window.location.href="../manager/manager.html"
-        console.log('Conference created:', result);
-  
-        // Optionally, you can redirect to another page after successful submission
-        // window.location.href = 'path/to/success/page.html';
-  
-      } catch (error) {
-        console.error('Error creating conference:', error);
-      }
-    });
-  });
-  
-  async function loadData(token) {
-    try {
-      const response = await fetch('http://localhost:3000/user/get-user', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
-      });
-  
-      if (!response.ok) {
-        throw new Error('Failed to fetch user data');
-      }
-  
-      const userData = await response.json();
-  
-      let title = window.localStorage.getItem('create-title') || 'Event Title';
-      let location = window.localStorage.getItem('create-location') || 'Location';
-      let startDate = window.localStorage.getItem('create-start-date') || 'Start Date';
-      let endDate = window.localStorage.getItem('create-end-date') || 'End Date';
-      let desc = window.localStorage.getItem('create-description') || 'Conference Description';
-      let host = window.localStorage.getItem('create-host') || 'Host Name';
-      let shortDescription = window.localStorage.getItem('create-short') || 'Short Description';
-      let category = window.localStorage.getItem('create-category') || 'Category';
-      let maxNum = window.localStorage.getItem('max-num') || 'Maximum Number';
-      let enableAbstracts = window.localStorage.getItem('enable-abstracts') === 'true' ? 'Yes' : 'No';
-  
-      document.querySelector('.create-event-advanced-title-h2').textContent = title;
+document.addEventListener('DOMContentLoaded', () => {
+  // Function to populate the HTML with data from localStorage
+  function populateEventDetails() {
+      const conferenceTitle = localStorage.getItem('conferenceTitle') || 'Event Title';
+      const location = localStorage.getItem('location') || 'Location';
+      const startDate = localStorage.getItem('startDate') || 'Start Date';
+      const endDate = localStorage.getItem('endDate') || 'End Date';
+
+      document.querySelector('.create-event-advanced-title-h2').textContent = conferenceTitle;
       document.querySelector('.create-event-advanced-location-h4').textContent = location;
       document.querySelector('.create-event-advanced-time-h4').textContent = `${startDate} - ${endDate}`;
-  
-      document.querySelector('.main-input-group-div h1').textContent = title;
-      document.querySelector('.main-input-group-div p.date').textContent = `${startDate} - ${endDate}`;
-      document.querySelector('.main-input-group-div p.location').textContent = location;
-      document.querySelector('.main-input-group-div p.host').textContent = userData.fullName;
-      document.querySelector('.main-input-group-div p.description').textContent = desc;
-      document.querySelector('.main-input-group-div p.short-description').textContent = shortDescription;
-      document.querySelector('.main-input-group-div p.category').textContent = category;
-      document.querySelector('.main-input-group-div p.max-num').textContent = maxNum;
-      document.querySelector('.main-input-group-div p.enable-abstracts').textContent = enableAbstracts;
-  
-    } catch (error) {
-      console.error('Error loading data:', error);
-    }
+
+      document.querySelector('.main-input-group-div h1').textContent = conferenceTitle;
+      document.querySelector('.date').textContent = `${startDate} - ${endDate}`;
+      document.querySelector('.location').textContent = location;
+      document.querySelector('.description').textContent = localStorage.getItem('conferenceDescription') || 'Conference Description';
   }
-  
+
+  // Display the poster image if available
+  function displayPosterImage() {
+      const posterImageSrc = localStorage.getItem('posterFile');
+      if (posterImageSrc) {
+          const posterImages = document.querySelectorAll('.main-input-group-div img, .main-input-group-div img.mb-5');
+          posterImages.forEach(image => image.src = posterImageSrc);
+      }
+  }
+
+  // Function to load user data
+  async function loadData(token) {
+      try {
+          const response = await fetch('http://localhost:3000/user/get-user', {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${token}`
+              }
+          });
+
+          if (!response.ok) {
+              throw new Error('Failed to fetch user data');
+          }
+
+          const userData = await response.json();
+          console.log('User data:', userData); // Debug log
+          document.querySelector('.host').textContent = userData.fullName;
+      } catch (error) {
+          console.error('Error loading data:', error);
+      }
+  }
+
+  // Load the user data
+  const token = localStorage.getItem('token'); // Assuming the token is stored in localStorage
+  if (token) {
+      loadData(token);
+  } else {
+      console.error('No token found in localStorage');
+  }
+
+  // Populate event details and display the poster image
+  populateEventDetails();
+  displayPosterImage();
+
+  // Add event listener for the Save & Continue button
+  const saveButton = document.getElementById('save');
+  saveButton.addEventListener('click', async (event) => {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Retrieve form values from localStorage
+      const conferenceTitle = localStorage.getItem('conferenceTitle');
+      const conferenceShortName = localStorage.getItem('conferenceShortName');
+      const conferenceCategory = localStorage.getItem('conferenceCategory');
+      const startDate = localStorage.getItem('startDate');
+      const endDate = localStorage.getItem('endDate');
+      const location = localStorage.getItem('location');
+      const conferenceDescription = localStorage.getItem('conferenceDescription');
+      const maxNumOfSubmissions = localStorage.getItem('maxNumOfSubmissions');
+      const abstractOption = localStorage.getItem('abstractOption') === 'yes';
+      const posterFile = localStorage.getItem('posterFile');
+
+      // Construct the payload for the API
+      const payload = {
+          title: conferenceTitle,
+          shortName: conferenceShortName,
+          description: conferenceDescription,
+          location: location,
+          startDate: startDate,
+          endDate: endDate,
+          maxNumSub: maxNumOfSubmissions,
+          isAbstracted: abstractOption,
+          category: conferenceCategory,
+          poster: posterFile, // Include the poster file data
+      };
+
+      // Create a FormData object for the file upload
+      const formData = new FormData();
+      for (const key in payload) {
+          formData.append(key, payload[key]);
+      }
+
+      const token = localStorage.getItem('token'); // Get the token from localStorage
+
+      try {
+          // Fetch the API to create a new conference
+          const response = await fetch('http://localhost:3000/conference/create-conference', {
+              method: 'POST',
+              headers: {
+                  'Authorization': `Bearer ${token}`
+              },
+              body: formData, // Use FormData object for the request body
+          });
+
+          const result = await response.json();
+
+          if (response.ok) {
+              alert('Conference created successfully.');
+              window.location.href="../manager/manager.html"
+          } else {
+              throw new Error(result.error || 'Failed to create conference.');
+          }
+
+      } catch (error) {
+          console.error('Error creating conference:', error);
+          alert('Error creating conference: ' + error.message);
+      }
+  });
+});
