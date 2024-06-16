@@ -70,23 +70,27 @@ async function fetchConferences() {
 function displayConferences(conferences) {
     const conferencesContainer = document.getElementById("con");
     conferencesContainer.innerHTML = ''; // Clear existing content
+
     conferences.forEach(conference => {
         const truncatedDescription = truncateText(conference.description, 20); // Limit to 20 words
         const datestart = conference.startDate;
-        const dateend = conference.endDate 
+        const dateend = conference.endDate;
         const starttdate = new Date(datestart);
         const endddate = new Date(dateend);
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         const startdate = starttdate.toLocaleDateString(undefined, options);
         const enddate = endddate.toLocaleDateString(undefined, options);
-        
+
+        // Normalize the poster path
+        const posterPath = `http://localhost:3000/${conference.poster.replace(/\\/g, '/')}`;
+
         const conferenceHTML = `
         <div class="col-md-6">
             <a class="conference-link" data-conference-id="${conference._id}" data-is-abstract-enabled="${conference.isAbstractEnabled}">
                 <div class="card mb-3 card-div" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-xl-5 col-lg-12 col-md-12">
-                            <img src="http://localhost:3000${conference.imageUrl}" class="img-fluid rounded-start rounded-bottom rounded-top" alt="Conference Image" ">
+                            <img src="${posterPath}" class="img-fluid rounded-start rounded-bottom rounded-top" alt="Conference Image">
                         </div>
                         <div class="col-xl-7 col-lg-12 col-md-12">
                             <div class="card-body">
@@ -103,16 +107,16 @@ function displayConferences(conferences) {
         `;
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
     });
+
     // Add event listener to save conference ID on click
     const conferenceLinks = document.querySelectorAll('.conference-link');
     conferenceLinks.forEach(link => {
         link.addEventListener('click', async function(event) {
             const conferenceId = this.getAttribute('data-conference-id');
             const abstract = this.getAttribute('data-is-abstract-enabled');
-           // alert(abstract)
             localStorage.setItem('conId', conferenceId);
             localStorage.setItem('abstract', abstract);
-            alert(abstract)
+
             try {
                 const response = await fetch('http://localhost:3000/conference/get-conferemember', {
                     method: 'POST',
@@ -122,39 +126,39 @@ function displayConferences(conferences) {
                     },
                     body: JSON.stringify({ conferenceid: localStorage.getItem("conId") })
                 });
-        
+
                 const user = await response.json();
-                
-                //alert(user.roleType)
+
                 if (!response.ok) {
                     throw new Error(result.message || 'Failed to fetch conference members');
                 }
+                
                 const roletype = user.roleType;
-                if(roletype=="Supervisor"){
+                if (roletype === "Supervisor") {
                     window.location.href = "../supervisor/supervisor.html";
-                    }else if(roletype=="Reviewer"){
-                        window.location.href = "../Reviewer/reviewer.html";
-                        }else if(roletype=="manager"){
-                            window.location.href = "../manager/manager.html";
-                            }else if(roletype=="Author"){
-                                if(abstract=="false"){
-                                    window.location.href = "../author/author-no-abstract.html";}
-                                else if(abstract=="true"){
-                                    window.location.href = "../author/author.html";}
-                                }else if(roletype=="user"){
-                                    window.location.href = "../yaser/user.html";
-                                    }else{
-                                    window.location.href = "../yaser/index.html";
-                                }
-        
-            
+                } else if (roletype === "Reviewer") {
+                    window.location.href = "../Reviewer/reviewer.html";
+                } else if (roletype === "manager") {
+                    window.location.href = "../manager/manager.html";
+                } else if (roletype === "Author") {
+                    if (abstract === "false") {
+                        window.location.href = "../author/author-no-abstract.html";
+                    } else if (abstract === "true") {
+                        window.location.href = "../author/author.html";
+                    }
+                } else if (roletype === "user") {
+                    window.location.href = "../yaser/user.html";
+                } else {
+                    window.location.href = "../yaser/index.html";
+                }
+
             } catch (error) {
                 console.error('Error fetching conference members:', error);
             }
-
         });
     });
 }
+
 
 // Event listener for the create conference button
 const createConferenceBtn = document.getElementById("create-btna");

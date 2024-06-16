@@ -83,12 +83,12 @@ async function displayConferences(conferences) {
     
     for (const conference of conferences) {
         const type = await getroletype(conference._id);
-        const posterSrc = conference.poster && conference.poster.trim() !== "" ? conference.poster : '../assets/medical.jpg';
+        const posterPath = `http://localhost:3000/${conference.poster.replace(/\\/g, '/')}`;
         const truncatedDescription = truncateText(conference.description, 20);
         const conferenceHTML = `<div class="col-md-12 col-lg-6 mx-auto gap-5 popular-conference-div">
                     <div class="card test-card" style="min-width: 18rem;">
                         <a href="" data-conference-id="${conference._id}" data-roletype="${type}" data-is-abstract-enabled="${conference.isAbstractEnabled}">
-                            <img src="../assets/conference banner2.jpg" class="card-img-top" alt="...">
+                            <img src="${posterPath}" class="card-img-top" alt="...">
                             <div class="card-body card-body-test">
                                 <h3 class="card-body-test">${conference.title}</h3>
                                 <p class="card-text card-body-test">${truncatedDescription}</p>
