@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Evenfy</title>
+    <title>Conference Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/style.css" />
     <!--favicon-->
@@ -17,8 +17,6 @@
 
 <body class="d-flex flex-column">
     <!-- Header starts -->
-
-
     <header class="p-2 header">
         <div class="container align-items-center header-container">
             <div class="d-flex flex-wrap align-items-center justify-content-between">
@@ -35,15 +33,13 @@
 
                 <div class="text-center text-md-end header-media-1" style="margin-right: 3%;">
                     <div class="d-flex flex-column flex-md-row align-items-center">
-                        <a href="../create-event/create-event-edit.html"><button type="button" class="btn btn-outline-light me-2 header-media-2">Create Conference</button></a>
+                        <button id="create-btna" type="button" class="btn btn-outline-light me-2 header-media-2">Create Conference</button>
                         <div class="dropdown text-end dropdown-media">
                             <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle text-white user-header-dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="../assets/icons8-user-50.png" alt="mdo" width="32" height="32" class="rounded-circle">
                                 <span class="text-white user-header-profile-text">Profile</span>
                             </a>
                             <ul class="dropdown-menu text-small">
-                                <!-- <li><a class="dropdown-item" href="#">Interests</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li> -->
                                 <li><a class="dropdown-item" href="./profileInfo.html">Profile</a></li>
                                 <li><a class="dropdown-item" href="../my-conferences/my-conferences.html">My Conferences</a></li>
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Notifications <span class="badge text-bg-danger rounded-pill" id="notificationsNumber"> 4</span></a></li>
@@ -59,9 +55,9 @@
             </div>
         </div>
     </header>
-
     <!-- Header ends -->
-    <!--=================================offcanvas notifications=========================================------------------------------------------------------------------>
+
+    <!--=================================offcanvas notifications=========================================-->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Notifications</h5>
@@ -79,8 +75,7 @@
             </div>
         </div>
     </div>
-    <!--==========================================================================------------------------------------------------------------------>
-    <!--=================================offcanvas invitations=========================================------------------------------------------------------------------>
+    <!--=================================offcanvas invitations=========================================-->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample2" aria-labelledby="offcanvasExampleLabe2">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasExampleLabel">Invitations</h5>
@@ -110,23 +105,21 @@
             </div>
         </div>
     </div>
-<!--==========================================================================------------------------------------------------------------------>
+
     <!-- Event Page Christmas -->
     <div class="flex-grow-1 p-4 mt-5">
         <div class="row">
             <div class="col-md-1 d-flex align-items-start justify-content-start">
                 <!-- Content for the first column -->
-                <button style="border: 0px ; background-color: white;"><img style="width: 20px;" src="./images/Vector 28.png"
-              alt=""></button>
+                <button style="border: 0px ; background-color: white;"><img style="width: 20px;" src="./images/Vector 28.png" alt=""></button>
             </div>
             <div class="col-md-11" style="width: 90%;">
                 <!-- Content for the second column -->
-                <img style="width: 93%;" src="./images/EventImage.png" alt="" srcset="">
+                <img style="width: 93%;" src="./images/EventImage.png" alt="" srcset="" id="image">
                 <div class="row  d-flex justify-content-between" style="width: 93%; padding-top: 1rem;">
                     <div class="col-md-7  d-flex align-items-center ">
-                        <p style="font-size: 32px; font-weight: 800; ">Sound Of Christmas 2023</p>
+                        <p style="font-size: 32px; font-weight: 800;">Sound Of Christmas 2023</p>
                     </div>
-
                 </div>
                 <div class="row d-flex justify-content-between" style="width: 93%; padding-top: 2rem;">
                     <div class="col-md-8 d-flex align-items-center ">
@@ -137,6 +130,17 @@
                             </p>
                         </div>
                     </div>
+                    <!-- <div class="col-md-4 d-flex flex-column align-items-start justify-content-start">
+                        <button id="join" class="btn-ticket mb-2 w-100">
+                            <img style="width: 20px;" src="./images/ion_ticket.png" alt="">
+                            Join
+                        </button>
+                        <p class="mx-auto">or</p>
+                        <button id="joinasauthor" class="btn-ticket w-100">
+                            <img style="width: 20px;" src="./images/ion_ticket.png" alt="">
+                            Join as an Author
+                        </button>
+                    </div> -->
                 </div>
                 <div class="col " style="padding-top: 2.5rem;">
                     <div class="row">
@@ -150,8 +154,7 @@
                         </div>
                     </div>
                     <div class="col">
-                        <iframe width="400" height="350" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.988557801129!2dLONGITUDE!3dLATITUDE!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDU5JzQyLjciTiA3NcKwMzMnMTUuMyJF!5e0!3m2!1sen!2sus!4v1612399743273!5m2!1sen!2sus">
-              </iframe>
+                        <iframe width="400" height="350" style="border:0" loading="lazy" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="col" style="padding-top: 2rem;">
@@ -171,18 +174,8 @@
                     </div>
                 </div>
                 <div class="col" style="padding-top: 2.5rem; color: #5A5A5A; font-size: 16px;">
-                    <p style="font-size: 20px; font-weight: 800; ">Conference Description</p>
+                    <p style="font-size: 20px; font-weight: 800;">Conference Description</p>
                     <p id="condes">Get ready to kick off the Christmas season in Mumbai with </p>
-
-                    <!-- <p class="fst-italic">City Youth Movement invites you to the 4th edition of our annual Christmas festivities - by the youth and for the youth! Feat. your favourite worship leaders, carols, quizzes and some exciting surprises!
-                    </p>
-                    <p>Bring your family and friends and sing along your favourite Christmas carols on the 2nd of December, 6:30 PM onwards at the Balgandharva Rang Mandir, Bandra West. Book your tickets now!</p>
-                    <p style="font-weight: 700;">3 Reasons to attend the event:</p>
-                    <ol style="padding: 0 18px;">
-                        <li>The FIRST Christmas concert of Mumbai!</li>
-                        <li>A special Christmas Choir!</li>
-                        <li>Special Dance performances and many more surprises!</li>
-                    </ol> -->
                 </div>
 
                 <div class="row" style="width: 93%;">
@@ -207,12 +200,66 @@
             </footer>
         </div>
     </div>
-
     <!-- Footer ends -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h555rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+    <script>
+        const conference = {
+            coordinates: {
+                latitude: 31.9454,
+                longitude: 35.9284
+            },
+            startDate: "2024-07-04T00:00:00.000Z",
+            endDate: "2024-06-27T00:00:00.000Z"
+        };
+
+        // Format and display dates
+        const dateElement = document.getElementById('date');
+        if (dateElement) {
+            const startDate = new Date(conference.startDate);
+            const endDate = new Date(conference.endDate);
+
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            
+            const formattedStartDate = startDate.toLocaleDateString(undefined, options);
+            const formattedEndDate = endDate.toLocaleDateString(undefined, options);
+
+            dateElement.textContent = `${formattedStartDate} | ${formattedEndDate}`;
+        }
+
+        // Update Google Maps iframe and fetch city name
+        const mapIframe = document.querySelector('.col iframe');
+        const cityElement = document.getElementById('location');
+
+        if (mapIframe && conference.coordinates) {
+            const { latitude, longitude } = conference.coordinates;
+
+            // Update Google Maps iframe
+            mapIframe.src = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.988557801129!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z${latitude}!5e0!3m2!1sen!2sus!4v1612399743273!5m2!1sen!2sus`;
+
+            // Use OpenCage Geocoding API to get the city name
+            const apiKey = 'YOUR_OPENCAGE_API_KEY';
+            const url = `https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${apiKey}`;
+
+            axios.get(url)
+                .then(response => {
+                    if (response.data && response.data.results && response.data.results.length > 0) {
+                        const city = response.data.results[0].components.city || response.data.results[0].components.town || response.data.results[0].components.village;
+                        if (city && cityElement) {
+                            cityElement.textContent = city;
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching city name:', error);
+                });
+        }
+    </script>
+
     <script src="./js/script.js"></script>
     <script src="./index.js"></script>
     <script src="../log-out-btn/log_out.js"></script>

@@ -155,6 +155,7 @@ async function fetchConferences() {
 }
 async function displayConference(conference) {
     if (!conference) return;
+    
 
     // Update the conference title
     const titleElement = document.querySelector('.col-md-7 p');
@@ -164,16 +165,13 @@ async function displayConference(conference) {
     console.log(conference.title)
 
     // Update the conference image
-    // const imageElement = document.querySelector('.col-md-11 img');
-    // if (imageElement) {
-    //     imageElement.src = conference.imageUrl;
-    // }
+    const imageElement = document.querySelector('.col-md-11 img');
+    if (imageElement) {
+        imageElement.src = conference.poster && conference.poster.trim() !== "" ? "http://localhost:3000/"+conference.poster : '../assets/medical.jpg';
+    }
 
     // Update the date and time
-    const dateElement = document.getElementById('date');
-    if (dateElement) {
-        dateElement.textContent = `${conference.startDate} | ${conference.endDate}`;
-    }
+    
 
     // Update the location
     const locationElement = document.getElementById('location');
@@ -186,19 +184,12 @@ async function displayConference(conference) {
        hostElement.textContent = host
        
     }
-
-    // Update the Google Maps iframe (optional, if you have coordinates)
-    const mapIframe = document.querySelector('.col iframe');
-    if (mapIframe && conference.coordinates) {
-        const { latitude, longitude } = conference.coordinates;
-        mapIframe.src = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.988557801129!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z${latitude}!5e0!3m2!1sen!2sus!4v1612399743273!5m2!1sen!2sus`;
-    }
-
-    // Update the event description
     const descriptionElement = document.getElementById('condes');
     if (descriptionElement) {
         descriptionElement.innerHTML = conference.description;
     }
+
+   
     
 }
 
