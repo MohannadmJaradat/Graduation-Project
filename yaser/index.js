@@ -63,15 +63,21 @@ joinAsAuthorButton.addEventListener('click', async () => {
     
         alert('you have been added succesfully');
         const abstract = localStorage.getItem("abstract")
-        if(abstract=="yes"){
+        alert(abstract)
+        if(abstract=="true"){
             window.location.href = "../author/author.html";
         }else{
             window.location.href = "../author/author-no-abstract.html";
         }
          
     } catch (error) {
-        console.error('Error adding member:', error);
-        alert('Failed to add member. Check console for details.');
+        const abstract = localStorage.getItem("abstract")
+        alert(abstract)
+        if(abstract=="true"){
+            window.location.href = "../author/author.html";
+        }else{
+            window.location.href = "../author/author-no-abstract.html";
+        }
     }
 });
 });
