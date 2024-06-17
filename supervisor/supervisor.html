@@ -33,7 +33,7 @@
 
             <div class="text-center text-md-end header-media-1" style="margin-right: 3%;">
                 <div class="d-flex flex-column flex-md-row align-items-center">
-                    <button type="button" class="btn btn-outline-light me-2 header-media-2">Create Conference</button>
+                    <!-- <button type="button" class="btn btn-outline-light me-2 header-media-2">Create Conference</button> -->
                     <div class="dropdown text-end dropdown-media">
                         <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle text-white user-header-dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="../assets/icons8-user-50.png" alt="mdo" width="32" height="32" class="rounded-circle">
@@ -42,8 +42,8 @@
                         <ul class="dropdown-menu text-small">
                             <li><a class="dropdown-item" href="../yaser/profileInfo.html">Profile</a></li>
                             <li><a class="dropdown-item" href="../my-conferences/my-conferences.html">My Conferences</a></li>
-                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Notifications <span class="badge text-bg-danger rounded-pill"> 4</span></a></li>
-                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample2" role="button" aria-controls="offcanvasExample">Invitations <span class="badge text-bg-danger rounded-pill"> 2</span></a></li>
+                            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Notifications <span class="badge text-bg-danger rounded-pill" id="notificationsNumber"> 4</span></a></li>
+                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample2" role="button" aria-controls="offcanvasExample">Invitations <span class="badge text-bg-danger rounded-pill" id="invitationsNumber"> 2</span></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -57,54 +57,54 @@
 </header>
 <!--header------------------------------------------------------------------>
     <!--=================================offcanvas notifications=========================================------------------------------------------------------------------>
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Notifications</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div class="notification">
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Notifications</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="notification">
-            damn bro
-        </div>
-        <div class="notification">
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-        </div>
-    </div>
-</div>
-<!--==========================================================================------------------------------------------------------------------>
-<!--=================================offcanvas invitations=========================================------------------------------------------------------------------>
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample2" aria-labelledby="offcanvasExampleLabe2">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Invitations</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div class="notification">
-            New invitation from Mohannad.
-            <div class="d-flex col-12 mt-3">
-                <button class="btn btn-success rounded-pill col-5 mx-auto" type="button">Accept</button>
-                <button class="btn btn-danger rounded-pill col-5 mx-auto" type="button">Decline</button>
+        <div class="offcanvas-body" id="notifications">
+            <div class="notification">
+                Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
             </div>
-        </div>
-        <div class="notification">
-            New invitation from Mohannad.
-            <div class="d-flex col-12 mt-3">
-                <button class="btn btn-success rounded-pill col-5 mx-auto" type="button">Accept</button>
-                <button class="btn btn-danger rounded-pill col-5 mx-auto" type="button">Decline</button>
+            <div class="notification">
+                damn bro
             </div>
-        </div>
-        <div class="notification">
-            New invitation from Mohannad.
-            <div class="d-flex col-12 mt-3">
-                <button class="btn btn-success rounded-pill col-5 mx-auto" type="button">Accept</button>
-                <button class="btn btn-danger rounded-pill col-5 mx-auto" type="button">Decline</button>
+            <div class="notification">
+                Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
             </div>
         </div>
     </div>
-</div>
+    <!--==========================================================================------------------------------------------------------------------>
+    <!--=================================offcanvas invitations=========================================------------------------------------------------------------------>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample2" aria-labelledby="offcanvasExampleLabe2">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Invitations</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" id="invitations">
+            <div class="notification">
+                New invitation from Mohannad.
+                <div class="d-flex col-12 mt-3">
+                    <button class="btn btn-success rounded-pill col-5 mx-auto" type="button">Accept</button>
+                    <button class="btn btn-danger rounded-pill col-5 mx-auto" type="button">Decline</button>
+                </div>
+            </div>
+            <div class="notification">
+                New invitation from Mohannad.
+                <div class="d-flex col-12 mt-3">
+                    <button class="btn btn-success rounded-pill col-5 mx-auto" type="button">Accept</button>
+                    <button class="btn btn-danger rounded-pill col-5 mx-auto" type="button">Decline</button>
+                </div>
+            </div>
+            <div class="notification">
+                New invitation from Mohannad.
+                <div class="d-flex col-12 mt-3">
+                    <button class="btn btn-success rounded-pill col-5 mx-auto" type="button">Accept</button>
+                    <button class="btn btn-danger rounded-pill col-5 mx-auto" type="button">Decline</button>
+                </div>
+            </div>
+        </div>
+    </div>
 <!--==========================================================================------------------------------------------------------------------>
     
 <div class="main-create-event-advanced">
@@ -243,6 +243,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz " crossorigin="anonymous "></script>
 <script src="../log-out-btn/log_out.js"></script>
 <script src="./supervisor.js"></script>
+<script src="../nonificationsandinvitation/notandinv.js"></script>
 </body>
 
 </html>
