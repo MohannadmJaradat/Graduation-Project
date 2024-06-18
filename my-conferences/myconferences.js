@@ -132,6 +132,11 @@ async function displayConferences(conferences) {
                         }else if(roletype=="user"){
                             window.location.href = "../yaser/user.html";
 
+                        }else if(roletype=="Subreviewer"){
+                            if(abstract=="true"){
+                                window.location.href = "../Sub-reviewer/Sub-reviewer.html";}
+                            else {
+                                window.location.href = "../Sub-reviewer/Sub-reviewer-no-abstract.html";}
                         }
         });
     });

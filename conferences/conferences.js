@@ -131,26 +131,33 @@ function displayConferences(conferences) {
 
                 if (!response.ok) {
                     throw new Error(result.message || 'Failed to fetch conference members');
-                }
-                
+                } 
                 const roletype = user.roleType;
-                if (roletype === "Supervisor") {
+                if(roletype=="Supervisor"){
                     window.location.href = "../supervisor/supervisor.html";
-                } else if (roletype === "Reviewer") {
-                    window.location.href = "../Reviewer/reviewer.html";
-                } else if (roletype === "manager") {
-                    window.location.href = "../manager/manager.html";
-                } else if (roletype === "Author") {
-                    if (abstract === "false") {
-                        window.location.href = "../author/author-no-abstract.html";
-                    } else if (abstract === "true") {
-                        window.location.href = "../author/author.html";
-                    }
-                } else if (roletype === "user") {
-                    window.location.href = "../yaser/user.html";
-                } else {
-                    window.location.href = "../yaser/index.html";
-                }
+                    }else if(roletype=="Reviewer"){
+                        if(abstract=="true"){
+                            window.location.href = "../Reviewer/reviewer.html";}
+                        else {
+                            window.location.href = "../Reviewer/reviewer-no-absract.html";}
+                        }else if(roletype=="manager"){
+                            window.location.href = "../manager/manager.html";
+                            }else if(roletype=="Author"){
+                                if(abstract=="true"){
+                                    window.location.href = "../author/author.html";}
+                                else {
+                                    window.location.href = "../author/author-no-abstract.html";}
+                            }else if(roletype=="user"){
+                                window.location.href = "../yaser/user.html";
+    
+                            }else if(roletype=="Subreviewer"){
+                                if(abstract=="true"){
+                                    window.location.href = "../Sub-reviewer/Sub-reviewer.html";}
+                                else {
+                                    window.location.href = "../Sub-reviewer/Sub-reviewer-no-abstract.html";}
+                            }else{
+                                window.location.href = "../yaser/index.html";
+                            }
 
             } catch (error) {
                 console.error('Error fetching conference members:', error);
