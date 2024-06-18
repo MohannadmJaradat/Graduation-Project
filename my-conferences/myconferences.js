@@ -111,20 +111,24 @@ async function displayConferences(conferences) {
             localStorage.setItem('conId', conferenceId);
             localStorage.setItem('abstract', abstract);
             const roletype = this.getAttribute('data-roletype');
+            alert(abstract)
             //localStorage.setItem('roleType', roletype);
             //alert(`Conference ID: ${conferenceId}, Role Type: ${roletype}`);
             // Optionally navigate to the new page after storing data
             if(roletype=="Supervisor"){
                 window.location.href = "../supervisor/supervisor.html";
                 }else if(roletype=="Reviewer"){
-                    window.location.href = "../Reviewer/reviewer.html";
+                    if(abstract=="true"){
+                        window.location.href = "../Reviewer/reviewer.html";}
+                    else {
+                        window.location.href = "../Reviewer/reviewer-no-absract.html";}
                     }else if(roletype=="manager"){
                         window.location.href = "../manager/manager.html";
                         }else if(roletype=="Author"){
-                            if(abstract=="false"){
-                                window.location.href = "../author/author-no-abstract.html";}
-                            else if(abstract=="true"){
+                            if(abstract=="true"){
                                 window.location.href = "../author/author.html";}
+                            else {
+                                window.location.href = "../author/author-no-abstract.html";}
                         }else if(roletype=="user"){
                             window.location.href = "../yaser/user.html";
 

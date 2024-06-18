@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const addButton = document.getElementById("addmem")
         const deleteButton = document.querySelector('.btn-danger');
         const conferencedetails = document.getElementById('addmem');
-        conferencedetails.addEventListener('click', async () => {
-            window.location.href ="../yaser/user.html"
-        });
+        // conferencedetails.addEventListener('click', async () => {
+        //     window.location.href ="../yaser/user.html"
+        // });
 
         addButton.addEventListener('click', async () => {
             const conferenceTitle = titleInput.value;
