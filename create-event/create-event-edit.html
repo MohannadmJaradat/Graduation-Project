@@ -22,7 +22,7 @@
         <div class="container align-items-center header-container">
             <div class="d-flex flex-wrap align-items-center justify-content-between">
                 <a href="../Homepage/user-homepage.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none" style="margin-left: 3%;">
-                    <h2 style="color: #FFE047;"><img src="../assets/icons8-ticket-50.png" style="width:50px ; height:50px; margin-right: 10px;" class="d-inline-block align-text-top">Evenfy</h2>
+                    <h2 style="color: #FFE047;"><img alt="" src="../assets/icons8-ticket-50.png" style="width:50px ; height:50px; margin-right: 10px;" class="d-inline-block align-text-top">Evenfy</h2>
                 </a>
 
                 <ul class="header-container container container-sm container-md nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -34,7 +34,7 @@
 
                 <div class="text-center text-md-end header-media-1" style="margin-right: 3%;">
                     <div class="d-flex flex-column flex-md-row align-items-center">
-                        
+
                         <div class="dropdown text-end dropdown-media">
                             <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle text-white user-header-dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="../assets/icons8-user-50.png" alt="mdo" width="32" height="32" class="rounded-circle">
@@ -50,12 +50,12 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><button id="logoutButton" class="dropdown-item" >Log out</button></li>
+                                <li><button id="logoutButton" class="dropdown-item">Log out</button></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </header>
@@ -109,7 +109,7 @@
             </div>
         </div>
     </div>
-<!--==========================================================================------------------------------------------------------------------>
+    <!--==========================================================================------------------------------------------------------------------>
     <div class="main-create-event-edit">
         <div class="create-a-new-event-div">
             <a href=""><img class="create-event-edit-back-button" src="../assets/icons8-back-50.png" alt=""></a>
@@ -197,49 +197,51 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzA6YFS8hIo9XjF2z7txsmXm9UpOG9S5c5sN6kMr2bAa" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBogGzA6YFS8hIo9XjF2z7txsmXm9UpOG9S5c5sN6kMr2bAa" crossorigin="anonymous"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-  const token = localStorage.getItem('token');
-  if (!token) {
-    window.location.href = '../Login/login.html';
-  }
+        document.addEventListener('DOMContentLoaded', async() => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '../Login/login.html';
+            }
 
-  const saveBtn = document.getElementById('save-btn');
-  if (saveBtn) {
-    saveBtn.addEventListener('click', saveConferenceData);
-  } else {
-    console.error('Save button not found');
-  }
+            const saveBtn = document.getElementById('save-btn');
+            if (saveBtn) {
+                saveBtn.addEventListener('click', saveConferenceData);
+            } else {
+                console.error('Save button not found');
+            }
 
-  function saveConferenceData(event) {
-    event.preventDefault();
+            function saveConferenceData(event) {
+                event.preventDefault();
 
-    const conferenceTitle = document.getElementById('Conference-title').value.trim();
-    const conferenceShortName = document.getElementById('Conference-short-name').value.trim();
-    const conferenceCategory = document.getElementById('category').value.trim();
-    const startDate = document.getElementById('start-date').value.trim();
-    const endDate = document.getElementById('end-date').value.trim();
-    const location = document.getElementById('location').value.trim();
-    const conferenceDescription = document.getElementById('description').value.trim();
+                const conferenceTitle = document.getElementById('Conference-title').value.trim();
+                const conferenceShortName = document.getElementById('Conference-short-name').value.trim();
+                const conferenceCategory = document.getElementById('category').value.trim();
+                const startDate = document.getElementById('start-date').value.trim();
+                const endDate = document.getElementById('end-date').value.trim();
+                const location = document.getElementById('location').value.trim();
+                const conferenceDescription = document.getElementById('description').value.trim();
 
-    if (!conferenceTitle || !conferenceShortName || !conferenceCategory || !startDate || !endDate || !location || !conferenceDescription) {
-      alert("All fields are required");
-      return;
-    }
+                if (!conferenceTitle || !conferenceShortName || !conferenceCategory || !startDate || !endDate || !location || !conferenceDescription) {
+                    alert("All fields are required");
+                    return;
+                }
 
-    localStorage.setItem('conferenceTitle', conferenceTitle);
-    localStorage.setItem('conferenceShortName', conferenceShortName);
-    localStorage.setItem('conferenceCategory', conferenceCategory);
-    localStorage.setItem('startDate', startDate);
-    localStorage.setItem('endDate', endDate);
-    localStorage.setItem('location', location);
-    localStorage.setItem('conferenceDescription', conferenceDescription);
+                localStorage.setItem('conferenceTitle', conferenceTitle);
+                localStorage.setItem('conferenceShortName', conferenceShortName);
+                localStorage.setItem('conferenceCategory', conferenceCategory);
+                localStorage.setItem('startDate', startDate);
+                localStorage.setItem('endDate', endDate);
+                localStorage.setItem('location', location);
+                localStorage.setItem('conferenceDescription', conferenceDescription);
 
-    window.location.href = "../create-event/create-event-advanced.html";
-  }
-});
+                window.location.href = "../create-event/create-event-advanced.html";
+            }
+        });
     </script>
     <script src="../nonificationsandinvitation/notandinv.js"></script>
     <script src="../log-out-btn/log_out.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz " crossorigin="anonymous "></script>
+
 </body>
 
 </html>
