@@ -118,10 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
   
         const result = await response.json();
-  
+        
         if (response.ok) {
           alert('Conference created successfully.');
-          window.location.href = "../manager/manager.html";
+
+          window.location.href = "../my-conferences/my-conferences.html";
         } else {
           throw new Error(result.error || 'Failed to create conference.');
         }

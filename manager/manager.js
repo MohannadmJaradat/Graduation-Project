@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         addButton.addEventListener('click', async () => {
             const conferenceTitle = titleInput.value;
             const memberEmail = emailInput.value;
-            alert(memberEmail)
+            //alert(memberEmail)
             let memberRole = '';
     
             roleInputs.forEach(input => {
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
     async function deletemember(conmem){
         try {
-            alert(conmem._id)
+            //alert(conmem._id)
             const response2 = await fetch('http://localhost:3000/manager/delete-member', {
                 method: 'POST',
                 headers: {
@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (!response.ok) {
                 throw new Error('Failed to fetch conferences');
             }
+            
             const submissions = await response.json();
             displayConferences(submissions);
         } catch (error) {
@@ -165,10 +166,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     async function displayConferences(submissions) {
         const submissionsContainer = document.getElementById("sub");
         submissionsContainer.innerHTML = ''; // Clear existing content
-    
+         
         for (const submission of submissions) {
             const user = await getuser(submission.authorId);
-            alert(user._id)
+           // alert(user._id)
             let conferenceHTML;
     
             if (submission.isAccepted) {
@@ -292,7 +293,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (event.target.classList.contains('remove-button')) {
                 const conferenceMemberId = event.target.dataset.conferenceMemberId;
                 try {
-                    alert(conferenceMemberId)
+                    //alert(conferenceMemberId)
                     const response = await fetch('http://localhost:3000/manager/delete-member', {
                         method: 'POST',
                         headers: {

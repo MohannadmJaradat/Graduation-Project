@@ -111,7 +111,7 @@ async function displayConferences(conferences) {
             localStorage.setItem('conId', conferenceId);
             localStorage.setItem('abstract', abstract);
             const roletype = this.getAttribute('data-roletype');
-            alert(abstract)
+            //alert(abstract)
             //localStorage.setItem('roleType', roletype);
             //alert(`Conference ID: ${conferenceId}, Role Type: ${roletype}`);
             // Optionally navigate to the new page after storing data

@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded',async (event) => {
         localStorage.setItem('searchInput', searchInput);
         if(countries[selectCountry-1]){
         localStorage.setItem('selectCountry', countries[selectCountry-1]);
-                alert(countries[selectCountry-1])
+                //alert(countries[selectCountry-1])
 
         }
         else{
@@ -129,7 +129,7 @@ function displayConferences(conferences) {
         link.addEventListener('click', async function(event) {
             const conferenceId = this.getAttribute('data-conference-id');
             const abstract = this.getAttribute('data-is-abstract-enabled');
-            alert(conferenceId)
+            //alert(conferenceId)
             localStorage.setItem('conId', conferenceId);
             localStorage.setItem('abstract', abstract);
             try {

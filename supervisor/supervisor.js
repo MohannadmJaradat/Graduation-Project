@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     body: JSON.stringify({ email: memberEmail, conferenceId: localStorage.getItem("conId") })
                 });
                 const conmem = await response.json();
-                alert(conmem._id)
+                //alert(conmem._id)
                 if (!response.ok) {
                     throw new Error(conmem.message || 'Error fetching conference member');
                 }
@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             if (event.target.classList.contains('remove-button')) {
                 const conferenceMemberId = event.target.dataset.conferenceMemberId;
                 try {
-                    alert(conferenceMemberId)
+                    //alert(conferenceMemberId)
                     const response = await fetch('http://localhost:3000/manager/delete-member', {
                         method: 'POST',
                         headers: {

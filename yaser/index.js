@@ -63,7 +63,7 @@ joinAsAuthorButton.addEventListener('click', async () => {
     
         alert('you have been added succesfully');
         const abstract = localStorage.getItem("abstract")
-        alert(abstract)
+        //alert(abstract)
         if(abstract=="true"){
             window.location.href = "../author/author.html";
         }else{
@@ -72,7 +72,7 @@ joinAsAuthorButton.addEventListener('click', async () => {
          
     } catch (error) {
         const abstract = localStorage.getItem("abstract")
-        alert(abstract)
+        //alert(abstract)
         if(abstract=="true"){
             window.location.href = "../author/author.html";
         }else{
