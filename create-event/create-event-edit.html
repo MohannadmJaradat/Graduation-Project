@@ -112,8 +112,10 @@
     <!--==========================================================================------------------------------------------------------------------>
     <div class="main-create-event-edit">
         <div class="create-a-new-event-div">
-            <a href=""><img class="create-event-edit-back-button" src="../assets/icons8-back-50.png" alt=""></a>
-            <h1 class="create-a-new-event-h1">Create a New Conference</h1>
+            <button class="create-event-advanced-back-button" style="background: none; border: none; padding: 0;">
+                <img src="../assets/icons8-back-50.png" alt="Back">
+            </button>
+                        <h1 class="create-a-new-event-h1">Create a New Conference</h1>
         </div>
         <div class="progress col-md-10 col-lg-10 mx-auto" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
             <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 35%; background-color:#ebce3e;"></div>
@@ -233,10 +235,53 @@
                 localStorage.setItem('endDate', endDate);
                 localStorage.setItem('location', location);
                 localStorage.setItem('conferenceDescription', conferenceDescription);
+                localStorage.setItem("where","create1")
 
                 window.location.href = "../create-event/create-event-advanced.html";
             }
         });
+        document.querySelector('.create-event-advanced-back-button').addEventListener('click', async () => {
+    const loc =localStorage.getItem("where")
+    if(loc=="mycon"){
+        window.location.href="../my-conferences/my-conferences.html"
+
+    }else if(loc=="con"){
+        window.location.href="../conferences/conferences.html"
+
+    }else if(loc=="scon"){
+        window.location.href="../conferences/searchconferences.html"
+
+    }else if(loc=="uhp"){
+        window.location.href="../Homepage/user-homepage.html"
+
+    }else if(loc=="author-no-abstract"){
+        window.location.href="../author/author-no-abstract.html"
+
+    }else if(loc=="author"){
+        window.location.href="../author/author.html"
+
+    }else if(loc=="manager"){
+        window.location.href="../manager/manager.html"
+
+    }else if(loc=="reviewer-no-abstract"){
+        window.location.href="../Reviewer/reviewer-no-abstract.html"
+
+    }else if(loc=="reviewer"){
+        window.location.href="../Reviewer/reviewer.html"
+
+    }else if(loc=="Sub-reviewer-no-abstract"){
+        window.location.href="../Sub-reviewer/Sub-reviewer-no-abstract.html"
+
+    }else if(loc=="Sub-reviewer"){
+        window.location.href="../Sub-reviewer/Sub-reviewer.html"
+
+    }else if(loc=="supervisor"){
+        window.location.href="../supervisor/supervisor.html"
+
+    }else{
+        window.location.href="../Homepage/user-homepage.html"
+    }
+});
     </script>
     <script src="../nonificationsandinvitation/notandinv.js"></script>
     <script src="../log-out-btn/log_out.js"></script>

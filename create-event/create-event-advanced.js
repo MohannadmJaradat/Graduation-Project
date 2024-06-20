@@ -55,4 +55,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     });
   });
+document.querySelector('.create-event-advanced-back-button').addEventListener('click', async () => {
+      window.location.href="../create-event/create-event-edit.html"
+});
   

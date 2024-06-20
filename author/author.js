@@ -8,6 +8,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
     loadData(token)
     fetchsubmissions();
 });
+document.getElementById('cond').addEventListener('click', function() {
+    localStorage.setItem("where","author")
+});
+
+document.querySelector('.create-event-advanced-back-button').addEventListener('click', async () => {
+    const loc =localStorage.getItem("where")
+    
+    if(loc=="mycon"){
+        window.location.href="../my-conferences/my-conferences.html"
+
+    }else if(loc=="con"){
+        window.location.href="../conferences/conferences.html"
+
+    }else if(loc=="scon"){
+        window.location.href="../conferences/searchconferences.html"
+
+    }else if(loc=="uhp"){
+        window.location.href="../Homepage/user-homepage.html"
+
+    }else{
+        window.location.href="../Homepage/user-homepage.html"
+    }
+});
 document.getElementById('submitFileButton').addEventListener('click', async () => {
     const paperFileInput = document.getElementById('formpaper');
     const abstractFileInput = document.getElementById('formabstract');

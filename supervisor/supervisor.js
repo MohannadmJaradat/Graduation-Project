@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Redirect to login page if not authenticated
         window.location.href = '../Login/login.html'; 
     }
-
+    
     loadData(token)
     fetchSubmesions();
 
@@ -73,6 +73,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 alert(`Error fetching conference member: ${error.message}`);
             }
         });
+    });
+    document.getElementById('cond').addEventListener('click', function() {
+        localStorage.setItem("where","supervisor")
+    });
+    
+    document.querySelector('.create-event-advanced-back-button').addEventListener('click', async () => {
+        const loc =localStorage.getItem("where")
+        if(loc=="mycon"){
+            window.location.href="../my-conferences/my-conferences.html"
+    
+        }else if(loc=="con"){
+            window.location.href="../conferences/conferences.html"
+    
+        }else if(loc=="scon"){
+            window.location.href="../conferences/searchconferences.html"
+    
+        }else if(loc=="uhp"){
+            window.location.href="../Homepage/user-homepage.html"
+    
+        }else{
+            window.location.href="../Homepage/user-homepage.html"
+        }
     });
     async function deletemember(conmem){
         try {

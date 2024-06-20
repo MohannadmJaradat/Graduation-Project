@@ -133,4 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+  document.querySelector('.create-event-advanced-back-button').addEventListener('click', async () => {
+        window.location.href="../create-event/create-event-advanced.html"
+  });
   

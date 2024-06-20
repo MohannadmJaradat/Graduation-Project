@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Redirect to login page if not authenticated
         window.location.href = '../Login/login.html'; 
     }
+    localStorage.setItem("where","con")
 
     // Add an event listener to the logout button
     // document.getElementById('logoutButton').addEventListener('click', function(event) {
