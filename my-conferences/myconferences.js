@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Redirect to login page if not authenticated
         window.location.href = '../Login/login.html'; 
     }
+    localStorage.setItem("where","mycon")
     
 
     loadData(token)
@@ -11,11 +12,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
     document.querySelector('.create-event-advanced-back-button').addEventListener('click', async () => {
     const loc =localStorage.getItem("where")
-    localStorage.setItem("where","mycon")
-    if(loc=="mycon"){
-        window.location.href="../my-conferences/my-conferences.html"
-
-    }else if(loc=="con"){
+    if(loc=="con"){
         window.location.href="../conferences/conferences.html"
 
     }else if(loc=="scon"){
