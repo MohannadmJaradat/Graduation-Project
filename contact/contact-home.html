@@ -142,8 +142,9 @@
         event.preventDefault();
         const name = document.getElementById('name').value;
         const message = document.getElementById('message').value;
+        const email = document.getElementById('email').value;
 
-        const data = { name, message };
+        const data = { email,name, message };
 
         try {
           const response = await fetch('http://localhost:3000/user/send-feedback', {
