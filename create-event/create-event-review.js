@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await response.json();
         
         if (response.ok) {
-          alert('Conference created successfully.');
+          alert('the conference should be verified by the admin first to be show');
 
           window.location.href = "../my-conferences/my-conferences.html";
         } else {
