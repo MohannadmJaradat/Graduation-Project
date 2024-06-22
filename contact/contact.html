@@ -113,15 +113,15 @@
     <div class="main-create-event-edit mb-5 flex-grow-1">
         <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 main-input-group-div mx-auto">
             <form id="contactForm">
-                <div class="mb-3 col-lg-6 mx-auto">
+                <!-- <div class="mb-3 col-lg-6 mx-auto">
                     <label for="email" class="form-label">Email address<span style="color: red;">*</span></label>
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required>
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3 col-lg-6 mx-auto">
+                </div> -->
+                <!-- <div class="mb-3 col-lg-6 mx-auto">
                     <label for="name" class="form-label">Name<span style="color: red;">*</span></label>
                     <input type="text" class="form-control" id="name" required>
-                </div>
+                </div> -->
                 <div class="mb-3 col-lg-6 mx-auto">
                     <label for="message" class="form-label">Contact Us<span style="color: red;">*</span></label>
                     <textarea class="form-control" id="message" rows="5" placeholder="Please write your message here to contact us..." required></textarea>
@@ -157,17 +157,18 @@
       document.getElementById('contactForm').addEventListener('submit', async function(event) {
         event.preventDefault();
 
-        const name = document.getElementById('name').value;
+        //const name = document.getElementById('name').value;
         const message = document.getElementById('message').value;
-        const email = document.getElementById('email').value;
+        //const email = document.getElementById('email').value;
 
-        const data = { email,name, message };
+        const data = {message };
 
         try {
-          const response = await fetch('http://localhost:3000/user/send-feedback', {
+          const response = await fetch('http://localhost:3000/user/send-feedbackuser', {
             method: 'POST',
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${localStorage.getItem("token")}`
             },
             body: JSON.stringify(data)
           });
