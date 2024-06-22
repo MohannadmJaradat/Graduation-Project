@@ -81,11 +81,9 @@
     
     .homepage-welcoming-text {
         color: white;
-        margin-left: 30%;
+        margin-left: 25%;
         padding-top: 5%;
         text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-        width:800px;
-
     }
     
     .homepage-search-bar {
