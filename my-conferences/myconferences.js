@@ -122,6 +122,14 @@ async function displayConferences(conferences) {
     const conferencesContainer = document.getElementById("con");
     conferencesContainer.innerHTML = ''; // Clear existing content
     
+    if(conferences.length == 0){
+        
+        const conferenceHTML =`<div class="alert text-center" role="alert" style="background-color: #1A1531; color: white; margin-top:200px ;">
+    No conferences yet.
+</div>
+`;
+conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
+    }else{
     for (const conference of conferences) {
         const type = await getroletype(conference._id);
         const posterPath = `http://localhost:3000/${conference.poster.replace(/\\/g, '/')}`;
@@ -140,7 +148,7 @@ async function displayConferences(conferences) {
                 </div>`;
         
         conferencesContainer.insertAdjacentHTML('beforeend', conferenceHTML);
-    }
+    }}
 
     // Add event listener to save conference ID and type on click
     const conferenceLinks = document.querySelectorAll('.test-card a');
