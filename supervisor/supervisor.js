@@ -280,7 +280,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
         users.forEach((user, index) => {
             let conferenceHTML;
-            if (user.role == "manager") {
+            if (user.role == "manager"||user.role == "Supervisor") {
                 conferenceHTML = `
                     <tr>
                         <th scope="row">${index + 1}</th>
