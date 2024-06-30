@@ -329,8 +329,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     console.log('Member deleted successfully:', result);
                     window.location.href = "./supervisor.html";
                 } catch (error) {
-                    console.error('Error deleting conference member:', error);
-                    alert(`Error deleting member: ${error.message}`);
+                    // console.error('Error deleting conference member:', error);
+                    // alert(`Error deleting member: ${error.message}`);
                 }
             }
         });

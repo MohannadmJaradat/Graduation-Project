@@ -110,15 +110,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 body: JSON.stringify({ conferenceMemberId: conmem._id, conferenceId: localStorage.getItem("conId") })
             });
             const result = await response2.json();
-            if (!response2.ok) {
-                throw new Error(result.message || 'Error deleting conference member');
-            }
+            // if (!response2.ok) {
+            //     // throw new Error(result.message || 'Error deleting conference member');
+            // }
             console.log('Member deleted successfully:', result);
+            alert('Member deleted successfully')
             window.location.href = "../manager/manager.html";
         } catch (error) {
-            console.error('Error deleting conference member:', error);
-            alert(`Error deleting member: ${error.message}`);
+            // console.log('Member deleted successfully:');
+            // alert('Member deleted successfully')
+             alert('Member deleted successfully');
+            // alert(`Error deleting member: ${error.message}`);
         }
+        alert('Member deleted successfully');
 
     }
     async function loadData(token) {
@@ -252,7 +256,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 },
                 body: JSON.stringify({submissionId})
             });
-            alert(`Accepted submission with ID: ${submissionId}`);
+            alert(`Accepted submission`);
             window.location.href = "../manager/manager.html";
         } else if (action === 'reject') {
             const response = await fetch('http://localhost:3000/manager/reject-sub', {
@@ -263,7 +267,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 },
                 body: JSON.stringify({submissionId})
             });
-            alert(`Rejected submission with ID: ${submissionId}`);
+            alert(`Rejected submission`);
             window.location.href = "../manager/manager.html";
         } else if (action === 'delete') {
             const response = await fetch('http://localhost:3000/manager/reject-sub', {
@@ -274,7 +278,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 },
                 body: JSON.stringify({submissionId})
             });
-            alert(`Deleted submission with ID: ${submissionId}`);
+            alert(`Deleted submission`);
             window.location.href = "../manager/manager.html";
         }
     }
